@@ -1,7 +1,7 @@
 {
-    "name": "Simple Toggle Sites",
+    "name": "Developer Platform",
     "version": "1.0.0",
-    "description": "A very basic extension to quickly block or allow a list of sites",
+    "description": "Developer Platform gives you an array of tools for developers, create and manage projects",
     "permissions": [
         "storage"
     ],
