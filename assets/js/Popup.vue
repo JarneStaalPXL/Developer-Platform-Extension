@@ -44,7 +44,7 @@ export default {
     return {
       switchIsChecked: true,
       icons: {
-        active: "images/icon-48x48.png",
+        active: "images/faviconpic.png",
         inactive: "images/icon-48x48-off.png",
       },
     };
