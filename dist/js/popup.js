@@ -18150,7 +18150,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       switchIsChecked: true,
       icons: {
-        active: "images/icon-48x48.png",
+        active: "images/faviconpic.png",
         inactive: "images/icon-48x48-off.png"
       }
     };
@@ -18220,7 +18220,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
               return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SunIcon)];
             }),
             _: 1 /* STABLE */
-          }, 8 /* PROPS */, ["onUpdate:value"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Register  ( Redirect to register of website )"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" When logged in, show favorite clickable tools "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" When logged in, be able to create a project the same you create one on the website ")];
+          }, 8 /* PROPS */, ["onUpdate:value"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("USE NAIVE UI COMPONENTS"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("https://www.naiveui.com/en-US/dark"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Register  ( Redirect to register of website )"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" When logged in, show favorite clickable tools "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" When logged in, be able to create a project the same you create one on the website ")];
         }),
         _: 1 /* STABLE */
       })];
