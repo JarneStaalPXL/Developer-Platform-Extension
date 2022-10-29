@@ -9,6 +9,7 @@
         "watch": "npm run local -- --watch"
     },
     "devDependencies": {
+        "@vicons/tabler": "^0.12.0",
         "cross-env": "^7.0.3",
         "laravel-mix": "^6.0.49",
         "naive-ui": "^2.33.5",
