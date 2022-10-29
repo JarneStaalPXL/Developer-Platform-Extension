@@ -1,10 +1,17 @@
 <template>
-  
+  <NavBar />
+  <router-view v-slot="{ Component, route }">
+                        <component
+                          :is="Component"
+                          :key="route.meta.usePathKey ? route.path : undefined"
+                        />
+                    </router-view>
 </template>
 
 <script>
 import { Sun as SunIcon, Moon as MoonIcon } from "@vicons/tabler";
 import { NCard, NConfigProvider, darkTheme, NSwitch } from "naive-ui";
+import NavBar from './components/NavBar.vue'
 export default {
   components: {
     NCard,
@@ -12,6 +19,7 @@ export default {
     NSwitch,
     SunIcon,
     MoonIcon,
+    NavBar
   },
   data() {
     return {
