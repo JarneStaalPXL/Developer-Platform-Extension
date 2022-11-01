@@ -25,12 +25,9 @@
           <i class="fa-brands fa-google" style="margin-right: 2px"></i
         ></n-button>
 
-        <a class="mt-4" id="forgotPassword" @click="$router.push('/forgotpassword')"
-          >Forgot password?</a
-        >
+        <a class="mt-4" id="forgotPassword" @click="openLink()">Forgot password?</a>
       </div>
     </section>
-
   </div>
 </template>
 
@@ -57,7 +54,7 @@ import {
 } from "naive-ui";
 
 export default {
-    components: {
+  components: {
     NButton,
     NInput,
     NCard,
@@ -81,6 +78,9 @@ export default {
     window.$notification = useNotification();
   },
   methods: {
+    openLink() {
+      window.open("https://developerplatform.net/forgotpassword", "_blank");
+    },
     async googleSignin() {
       const provider = new GoogleAuthProvider();
       const auth = getAuth();
@@ -123,7 +123,7 @@ export default {
           await this.$store.dispatch("GET_PAGE_VISITS");
           await this.$store.dispatch("GET_USER_FAVORITE_TOOLS");
           window.$loadingbar.finish();
-          this.$router.push("/");
+          this.$router.push("/options");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -177,9 +177,11 @@ export default {
     };
   },
 };
-
 </script>
 
-<style>
-
+<style lang="scss">
+body {
+  width: 500px;
+  height: 500px;
+}
 </style>

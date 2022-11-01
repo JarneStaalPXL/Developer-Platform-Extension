@@ -31064,7 +31064,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var naive_ui__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! naive-ui */ "./node_modules/naive-ui/es/card/src/Card.js");
 /* harmony import */ var naive_ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! naive-ui */ "./node_modules/naive-ui/es/config-provider/src/ConfigProvider.js");
 /* harmony import */ var naive_ui__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! naive-ui */ "./node_modules/naive-ui/es/switch/src/Switch.js");
-/* harmony import */ var naive_ui__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! naive-ui */ "./node_modules/naive-ui/es/themes/dark.js");
+/* harmony import */ var naive_ui__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! naive-ui */ "./node_modules/naive-ui/es/loading-bar/src/LoadingBarProvider.js");
+/* harmony import */ var naive_ui__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! naive-ui */ "./node_modules/naive-ui/es/notification/src/NotificationProvider.js");
+/* harmony import */ var naive_ui__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! naive-ui */ "./node_modules/naive-ui/es/message/src/MessageProvider.js");
+/* harmony import */ var naive_ui__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! naive-ui */ "./node_modules/naive-ui/es/themes/dark.js");
 /* harmony import */ var _components_NavBar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/NavBar.vue */ "./assets/js/components/NavBar.vue");
 
 
@@ -31076,7 +31079,10 @@ __webpack_require__.r(__webpack_exports__);
     NSwitch: naive_ui__WEBPACK_IMPORTED_MODULE_3__["default"],
     SunIcon: _vicons_tabler__WEBPACK_IMPORTED_MODULE_4__["default"],
     MoonIcon: _vicons_tabler__WEBPACK_IMPORTED_MODULE_5__["default"],
-    NavBar: _components_NavBar_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    NavBar: _components_NavBar_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    NLoadingBarProvider: naive_ui__WEBPACK_IMPORTED_MODULE_6__["default"],
+    NNotificationProvider: naive_ui__WEBPACK_IMPORTED_MODULE_7__["default"],
+    NMessageProvider: naive_ui__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
   data: function data() {
     return {
@@ -31098,7 +31104,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   setup: function setup() {
     return {
-      darkTheme: naive_ui__WEBPACK_IMPORTED_MODULE_6__.darkTheme
+      darkTheme: naive_ui__WEBPACK_IMPORTED_MODULE_9__.darkTheme
     };
   }
 });
@@ -31234,6 +31240,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     window.$notification = (0,naive_ui__WEBPACK_IMPORTED_MODULE_10__.useNotification)();
   },
   methods: {
+    openLink: function openLink() {
+      window.open("https://developerplatform.net/forgotpassword", "_blank");
+    },
     googleSignin: function googleSignin() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
@@ -31320,7 +31329,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return _this2.$store.dispatch("GET_USER_FAVORITE_TOOLS");
                 case 8:
                   window.$loadingbar.finish();
-                  _this2.$router.push("/");
+                  _this2.$router.push("/options");
                 case 10:
                 case "end":
                   return _context3.stop();
@@ -31438,14 +31447,38 @@ __webpack_require__.r(__webpack_exports__);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_NavBar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("NavBar");
   var _component_router_view = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-view");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_NavBar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_view, null, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
-      var Component = _ref.Component,
-        route = _ref.route;
-      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)(Component), {
-        key: route.meta.usePathKey ? route.path : undefined
-      }))];
+  var _component_n_message_provider = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("n-message-provider");
+  var _component_n_notification_provider = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("n-notification-provider");
+  var _component_n_loading_bar_provider = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("n-loading-bar-provider");
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_NavBar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_n_loading_bar_provider, null, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_n_notification_provider, {
+        max: 1,
+        placement: 'right'
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_n_message_provider, null, {
+            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_view, null, {
+                "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
+                  var Component = _ref.Component,
+                    route = _ref.route;
+                  return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)(Component), {
+                    key: route.meta.usePathKey ? route.path : undefined
+                  }))];
+                }),
+                _: 1 /* STABLE */
+              })];
+            }),
+
+            _: 1 /* STABLE */
+          })];
+        }),
+
+        _: 1 /* STABLE */
+      })];
     }),
+
     _: 1 /* STABLE */
   })], 64 /* STABLE_FRAGMENT */);
 }
@@ -31479,11 +31512,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_n_card, {
-        style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)([{
-          "padding": "0"
-        }, {
+        style: {
           borderRadius: 0
-        }])
+        }
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Implement dark/light mode switch (if logged in, fetch the mode and set colorMode in state)"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_n_switch, {
@@ -31535,12 +31566,15 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_2 = {
   id: "nav-right"
 };
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Developer "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Platfor ")], -1 /* HOISTED */);
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Developer "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Platform ")], -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_DarkModeSwitchVue = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DarkModeSwitchVue");
   var _component_n_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("n-card");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("nav", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_n_card, {
+    style: {
+      paddingSmall: 0
+    },
     id: "container-nav"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -31640,7 +31674,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "mt-4",
     id: "forgotPassword",
     onClick: _cache[6] || (_cache[6] = function ($event) {
-      return _ctx.$router.push('/forgotpassword');
+      return $options.openLink();
     })
   }, "Forgot password?")])])]);
 }
@@ -31693,7 +31727,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return null;
+  return "options page";
 }
 
 /***/ }),
@@ -33340,6 +33374,91 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/firebase/analytics/dist/index.esm.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/firebase/analytics/dist/index.esm.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getAnalytics": () => (/* reexport safe */ _firebase_analytics__WEBPACK_IMPORTED_MODULE_0__.getAnalytics),
+/* harmony export */   "initializeAnalytics": () => (/* reexport safe */ _firebase_analytics__WEBPACK_IMPORTED_MODULE_0__.initializeAnalytics),
+/* harmony export */   "isSupported": () => (/* reexport safe */ _firebase_analytics__WEBPACK_IMPORTED_MODULE_0__.isSupported),
+/* harmony export */   "logEvent": () => (/* reexport safe */ _firebase_analytics__WEBPACK_IMPORTED_MODULE_0__.logEvent),
+/* harmony export */   "setAnalyticsCollectionEnabled": () => (/* reexport safe */ _firebase_analytics__WEBPACK_IMPORTED_MODULE_0__.setAnalyticsCollectionEnabled),
+/* harmony export */   "setConsent": () => (/* reexport safe */ _firebase_analytics__WEBPACK_IMPORTED_MODULE_0__.setConsent),
+/* harmony export */   "setCurrentScreen": () => (/* reexport safe */ _firebase_analytics__WEBPACK_IMPORTED_MODULE_0__.setCurrentScreen),
+/* harmony export */   "setDefaultEventParameters": () => (/* reexport safe */ _firebase_analytics__WEBPACK_IMPORTED_MODULE_0__.setDefaultEventParameters),
+/* harmony export */   "setUserId": () => (/* reexport safe */ _firebase_analytics__WEBPACK_IMPORTED_MODULE_0__.setUserId),
+/* harmony export */   "setUserProperties": () => (/* reexport safe */ _firebase_analytics__WEBPACK_IMPORTED_MODULE_0__.setUserProperties),
+/* harmony export */   "settings": () => (/* reexport safe */ _firebase_analytics__WEBPACK_IMPORTED_MODULE_0__.settings)
+/* harmony export */ });
+/* harmony import */ var _firebase_analytics__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @firebase/analytics */ "./node_modules/@firebase/analytics/dist/esm/index.esm2017.js");
+
+//# sourceMappingURL=index.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/firebase/app/dist/index.esm.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/firebase/app/dist/index.esm.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FirebaseError": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__.FirebaseError),
+/* harmony export */   "SDK_VERSION": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__.SDK_VERSION),
+/* harmony export */   "_DEFAULT_ENTRY_NAME": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__._DEFAULT_ENTRY_NAME),
+/* harmony export */   "_addComponent": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__._addComponent),
+/* harmony export */   "_addOrOverwriteComponent": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__._addOrOverwriteComponent),
+/* harmony export */   "_apps": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__._apps),
+/* harmony export */   "_clearComponents": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__._clearComponents),
+/* harmony export */   "_components": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__._components),
+/* harmony export */   "_getProvider": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__._getProvider),
+/* harmony export */   "_registerComponent": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__._registerComponent),
+/* harmony export */   "_removeServiceInstance": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__._removeServiceInstance),
+/* harmony export */   "deleteApp": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__.deleteApp),
+/* harmony export */   "getApp": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__.getApp),
+/* harmony export */   "getApps": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__.getApps),
+/* harmony export */   "initializeApp": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__.initializeApp),
+/* harmony export */   "onLog": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__.onLog),
+/* harmony export */   "registerVersion": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__.registerVersion),
+/* harmony export */   "setLogLevel": () => (/* reexport safe */ _firebase_app__WEBPACK_IMPORTED_MODULE_0__.setLogLevel)
+/* harmony export */ });
+/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @firebase/app */ "./node_modules/@firebase/app/dist/esm/index.esm2017.js");
+
+
+
+var name = "firebase";
+var version = "9.13.0";
+
+/**
+ * @license
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+(0,_firebase_app__WEBPACK_IMPORTED_MODULE_0__.registerVersion)(name, version, 'app');
+//# sourceMappingURL=index.esm.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/firebase/auth/dist/index.esm.js":
 /*!******************************************************!*\
   !*** ./node_modules/firebase/auth/dist/index.esm.js ***!
@@ -33503,6 +33622,30 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap);"]);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "nav {\n  display: flex;\n  border-bottom: 1px solid black;\n  justify-content: space-between;\n  font-family: Titillium Web, sans-serif;\n  box-sizing: border-box;\n}\nnav #nav-right {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 85%;\n  margin: 0;\n}\nnav #container-nav {\n  display: flex;\n  padding: 0;\n}\nnav img {\n  width: 15%;\n  margin: 5px;\n}\nnav span {\n  font-size: 15px;\n  margin: 10px;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./assets/js/views/Login.vue?vue&type=style&index=0&id=1d643110&lang=scss":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./assets/js/views/Login.vue?vue&type=style&index=0&id=1d643110&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  width: 500px;\n  height: 500px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -37378,6 +37521,73 @@ const {
  font-family: inherit;
  font-size: inherit;
  `)]));
+
+/***/ }),
+
+/***/ "./node_modules/naive-ui/es/_styles/transitions/fade-in-height-expand.cssr.js":
+/*!************************************************************************************!*\
+  !*** ./node_modules/naive-ui/es/_styles/transitions/fade-in-height-expand.cssr.js ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fadeInHeightExpandTransition": () => (/* binding */ fadeInHeightExpandTransition)
+/* harmony export */ });
+/* harmony import */ var _utils_cssr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../_utils/cssr */ "./node_modules/naive-ui/es/_utils/cssr/index.js");
+/* harmony import */ var _common_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common/_common */ "./node_modules/naive-ui/es/_styles/common/_common.js");
+
+
+const {
+  cubicBezierEaseInOut,
+  cubicBezierEaseOut,
+  cubicBezierEaseIn
+} = _common_common__WEBPACK_IMPORTED_MODULE_0__["default"];
+function fadeInHeightExpandTransition({
+  overflow = 'hidden',
+  duration = '.3s',
+  originalTransition = '',
+  leavingDelay = '0s',
+  foldPadding = false,
+  enterToProps = undefined,
+  leaveToProps = undefined,
+  reverse = false
+} = {}) {
+  const enterClass = reverse ? 'leave' : 'enter';
+  const leaveClass = reverse ? 'enter' : 'leave';
+  return [(0,_utils_cssr__WEBPACK_IMPORTED_MODULE_1__.c)(`&.fade-in-height-expand-transition-${leaveClass}-from,
+ &.fade-in-height-expand-transition-${enterClass}-to`, Object.assign(Object.assign({}, enterToProps), {
+    opacity: 1
+  })), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_1__.c)(`&.fade-in-height-expand-transition-${leaveClass}-to,
+ &.fade-in-height-expand-transition-${enterClass}-from`, Object.assign(Object.assign({}, leaveToProps), {
+    opacity: 0,
+    marginTop: '0 !important',
+    marginBottom: '0 !important',
+    paddingTop: foldPadding ? '0 !important' : undefined,
+    paddingBottom: foldPadding ? '0 !important' : undefined
+  })), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_1__.c)(`&.fade-in-height-expand-transition-${leaveClass}-active`, `
+ overflow: ${overflow};
+ transition:
+ max-height ${duration} ${cubicBezierEaseInOut} ${leavingDelay},
+ opacity ${duration} ${cubicBezierEaseOut} ${leavingDelay},
+ margin-top ${duration} ${cubicBezierEaseInOut} ${leavingDelay},
+ margin-bottom ${duration} ${cubicBezierEaseInOut} ${leavingDelay},
+ padding-top ${duration} ${cubicBezierEaseInOut} ${leavingDelay},
+ padding-bottom ${duration} ${cubicBezierEaseInOut} ${leavingDelay}
+ ${originalTransition ? ',' + originalTransition : ''}
+ `), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_1__.c)(`&.fade-in-height-expand-transition-${enterClass}-active`, `
+ overflow: ${overflow};
+ transition:
+ max-height ${duration} ${cubicBezierEaseInOut},
+ opacity ${duration} ${cubicBezierEaseIn},
+ margin-top ${duration} ${cubicBezierEaseInOut},
+ margin-bottom ${duration} ${cubicBezierEaseInOut},
+ padding-top ${duration} ${cubicBezierEaseInOut},
+ padding-bottom ${duration} ${cubicBezierEaseInOut}
+ ${originalTransition ? ',' + originalTransition : ''}
+ `)];
+}
 
 /***/ }),
 
@@ -44517,6 +44727,292 @@ const listLight = {
 
 /***/ }),
 
+/***/ "./node_modules/naive-ui/es/loading-bar/src/LoadingBar.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/naive-ui/es/loading-bar/src/LoadingBar.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../_mixins */ "./node_modules/naive-ui/es/_mixins/use-config.js");
+/* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../_mixins */ "./node_modules/naive-ui/es/_mixins/use-theme.js");
+/* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../_mixins */ "./node_modules/naive-ui/es/_mixins/use-css-vars-class.js");
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../styles */ "./node_modules/naive-ui/es/loading-bar/styles/light.js");
+/* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./context */ "./node_modules/naive-ui/es/loading-bar/src/context.js");
+/* harmony import */ var _styles_index_cssr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/index.cssr */ "./node_modules/naive-ui/es/loading-bar/src/styles/index.cssr.js");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+
+
+
+
+
+function createClassName(status, clsPrefix) {
+    return `${clsPrefix}-loading-bar ${clsPrefix}-loading-bar--${status}`;
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
+    name: 'LoadingBar',
+    props: {
+        containerStyle: [String, Object]
+    },
+    setup() {
+        const { inlineThemeDisabled } = (0,_mixins__WEBPACK_IMPORTED_MODULE_1__["default"])();
+        const { props: providerProps, mergedClsPrefixRef
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+         } = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)(_context__WEBPACK_IMPORTED_MODULE_2__.loadingBarProviderInjectionKey);
+        const loadingBarRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+        const enteringRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+        const startedRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+        const loadingRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+        const transitionDisabledRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+        let finishing = false;
+        const erroringRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+        const mergedLoadingBarStyle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
+            const { loadingBarStyle } = providerProps;
+            if (!loadingBarStyle)
+                return '';
+            return loadingBarStyle[erroringRef.value ? 'error' : 'loading'];
+        });
+        function init() {
+            return __awaiter(this, void 0, void 0, function* () {
+                enteringRef.value = false;
+                loadingRef.value = false;
+                finishing = false;
+                erroringRef.value = false;
+                transitionDisabledRef.value = true;
+                yield (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();
+                transitionDisabledRef.value = false;
+            });
+        }
+        function start(fromProgress = 0, toProgress = 80, status = 'starting') {
+            return __awaiter(this, void 0, void 0, function* () {
+                yield init();
+                loadingRef.value = true;
+                startedRef.value = true;
+                yield (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();
+                const el = loadingBarRef.value;
+                if (!el)
+                    return;
+                el.style.maxWidth = `${fromProgress}%`;
+                el.style.transition = 'none';
+                void el.offsetWidth;
+                el.className = createClassName(status, mergedClsPrefixRef.value);
+                el.style.transition = '';
+                el.style.maxWidth = `${toProgress}%`;
+            });
+        }
+        function finish() {
+            if (finishing || erroringRef.value || !loadingRef.value)
+                return;
+            finishing = true;
+            const el = loadingBarRef.value;
+            if (!el)
+                return;
+            el.className = createClassName('finishing', mergedClsPrefixRef.value);
+            el.style.maxWidth = '100%';
+            void el.offsetWidth;
+            loadingRef.value = false;
+        }
+        function error() {
+            if (finishing || erroringRef.value)
+                return;
+            if (!loadingRef.value) {
+                void start(100, 100, 'error').then(() => {
+                    erroringRef.value = true;
+                    const el = loadingBarRef.value;
+                    if (!el)
+                        return;
+                    el.className = createClassName('error', mergedClsPrefixRef.value);
+                    void el.offsetWidth;
+                    loadingRef.value = false;
+                });
+            }
+            else {
+                erroringRef.value = true;
+                const el = loadingBarRef.value;
+                if (!el)
+                    return;
+                el.className = createClassName('error', mergedClsPrefixRef.value);
+                el.style.maxWidth = '100%';
+                void el.offsetWidth;
+                loadingRef.value = false;
+            }
+        }
+        function handleEnter() {
+            enteringRef.value = true;
+        }
+        function handleAfterEnter() {
+            enteringRef.value = false;
+        }
+        function handleAfterLeave() {
+            return __awaiter(this, void 0, void 0, function* () {
+                yield init();
+            });
+        }
+        const themeRef = (0,_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])('LoadingBar', '-loading-bar', _styles_index_cssr__WEBPACK_IMPORTED_MODULE_4__["default"], _styles__WEBPACK_IMPORTED_MODULE_5__["default"], providerProps, mergedClsPrefixRef);
+        const cssVarsRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
+            const { self: { height, colorError, colorLoading } } = themeRef.value;
+            return {
+                '--n-height': height,
+                '--n-color-loading': colorLoading,
+                '--n-color-error': colorError
+            };
+        });
+        const themeClassHandle = inlineThemeDisabled
+            ? (0,_mixins__WEBPACK_IMPORTED_MODULE_6__.useThemeClass)('loading-bar', undefined, cssVarsRef, providerProps)
+            : undefined;
+        return {
+            mergedClsPrefix: mergedClsPrefixRef,
+            loadingBarRef,
+            started: startedRef,
+            loading: loadingRef,
+            entering: enteringRef,
+            transitionDisabled: transitionDisabledRef,
+            start,
+            error,
+            finish,
+            handleEnter,
+            handleAfterEnter,
+            handleAfterLeave,
+            mergedLoadingBarStyle,
+            cssVars: inlineThemeDisabled ? undefined : cssVarsRef,
+            themeClass: themeClassHandle === null || themeClassHandle === void 0 ? void 0 : themeClassHandle.themeClass,
+            onRender: themeClassHandle === null || themeClassHandle === void 0 ? void 0 : themeClassHandle.onRender
+        };
+    },
+    render() {
+        if (!this.started)
+            return null;
+        const { mergedClsPrefix } = this;
+        return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, { name: "fade-in-transition", appear: true, onEnter: this.handleEnter, onAfterEnter: this.handleAfterEnter, 
+            // eslint-disable-next-line @typescript-eslint/no-misused-promises
+            onAfterLeave: this.handleAfterLeave, css: !this.transitionDisabled }, {
+            default: () => {
+                var _a;
+                (_a = this.onRender) === null || _a === void 0 ? void 0 : _a.call(this);
+                return (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.h)("div", { class: [
+                        `${mergedClsPrefix}-loading-bar-container`,
+                        this.themeClass
+                    ], style: this.containerStyle },
+                    (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)("div", { ref: "loadingBarRef", class: [`${mergedClsPrefix}-loading-bar`], style: [
+                            this.cssVars,
+                            this.mergedLoadingBarStyle
+                        ] })), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, this.loading || (!this.loading && this.entering)]]);
+            }
+        }));
+    }
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/naive-ui/es/loading-bar/src/LoadingBarProvider.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/naive-ui/es/loading-bar/src/LoadingBarProvider.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "loadingBarProviderProps": () => (/* binding */ loadingBarProviderProps)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vooks */ "./node_modules/vooks/es/life-cycle/use-is-mounted.js");
+/* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../_mixins */ "./node_modules/naive-ui/es/_mixins/use-theme.js");
+/* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../_mixins */ "./node_modules/naive-ui/es/_mixins/use-config.js");
+/* harmony import */ var _LoadingBar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./LoadingBar */ "./node_modules/naive-ui/es/loading-bar/src/LoadingBar.js");
+/* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./context */ "./node_modules/naive-ui/es/loading-bar/src/context.js");
+
+
+
+
+
+const loadingBarProviderProps = Object.assign(Object.assign({}, _mixins__WEBPACK_IMPORTED_MODULE_1__["default"].props), { to: {
+        type: [String, Object, Boolean],
+        default: undefined
+    }, containerStyle: [String, Object], loadingBarStyle: {
+        type: Object
+    } });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
+    name: 'LoadingBarProvider',
+    props: loadingBarProviderProps,
+    setup(props) {
+        const isMountedRef = (0,vooks__WEBPACK_IMPORTED_MODULE_2__["default"])();
+        const loadingBarRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+        const methods = {
+            start() {
+                var _a;
+                if (isMountedRef.value) {
+                    (_a = loadingBarRef.value) === null || _a === void 0 ? void 0 : _a.start();
+                }
+                else {
+                    void (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)(() => {
+                        var _a;
+                        (_a = loadingBarRef.value) === null || _a === void 0 ? void 0 : _a.start();
+                    });
+                }
+            },
+            error() {
+                var _a;
+                if (isMountedRef.value) {
+                    (_a = loadingBarRef.value) === null || _a === void 0 ? void 0 : _a.error();
+                }
+                else {
+                    void (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)(() => {
+                        var _a;
+                        (_a = loadingBarRef.value) === null || _a === void 0 ? void 0 : _a.error();
+                    });
+                }
+            },
+            finish() {
+                var _a;
+                if (isMountedRef.value) {
+                    (_a = loadingBarRef.value) === null || _a === void 0 ? void 0 : _a.finish();
+                }
+                else {
+                    void (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)(() => {
+                        var _a;
+                        (_a = loadingBarRef.value) === null || _a === void 0 ? void 0 : _a.finish();
+                    });
+                }
+            }
+        };
+        const { mergedClsPrefixRef } = (0,_mixins__WEBPACK_IMPORTED_MODULE_3__["default"])(props);
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.provide)(_context__WEBPACK_IMPORTED_MODULE_4__.loadingBarApiInjectionKey, methods);
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.provide)(_context__WEBPACK_IMPORTED_MODULE_4__.loadingBarProviderInjectionKey, {
+            props,
+            mergedClsPrefixRef
+        });
+        return Object.assign(methods, {
+            loadingBarRef
+        });
+    },
+    render() {
+        var _a, _b;
+        return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(vue__WEBPACK_IMPORTED_MODULE_0__.Teleport, { disabled: this.to === false, to: this.to || 'body' },
+                (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(_LoadingBar__WEBPACK_IMPORTED_MODULE_5__["default"], { ref: "loadingBarRef", containerStyle: this.containerStyle })), (_b = (_a = this.$slots).default) === null || _b === void 0 ? void 0 :
+            _b.call(_a)));
+    }
+}));
+
+
+/***/ }),
+
 /***/ "./node_modules/naive-ui/es/loading-bar/src/context.js":
 /*!*************************************************************!*\
   !*** ./node_modules/naive-ui/es/loading-bar/src/context.js ***!
@@ -44534,6 +45030,57 @@ __webpack_require__.r(__webpack_exports__);
 const loadingBarProviderInjectionKey = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.createInjectionKey)('n-loading-bar');
 const loadingBarApiInjectionKey = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.createInjectionKey)('n-loading-bar-api');
 
+
+/***/ }),
+
+/***/ "./node_modules/naive-ui/es/loading-bar/src/styles/index.cssr.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/naive-ui/es/loading-bar/src/styles/index.cssr.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils_cssr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../_utils/cssr */ "./node_modules/naive-ui/es/_utils/cssr/index.js");
+/* harmony import */ var _styles_transitions_fade_in_cssr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../_styles/transitions/fade-in.cssr */ "./node_modules/naive-ui/es/_styles/transitions/fade-in.cssr.js");
+
+ // vars:
+// --n-height
+// --n-color-loading
+// --n-color-error
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cB)('loading-bar-container', `
+ z-index: 5999;
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ height: 2px;
+`, [(0,_styles_transitions_fade_in_cssr__WEBPACK_IMPORTED_MODULE_1__.fadeInTransition)({
+  enterDuration: '0.3s',
+  leaveDuration: '0.8s'
+}), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cB)('loading-bar', `
+ width: 100%;
+ transition:
+ max-width 4s linear,
+ background .2s linear;
+ height: var(--n-height);
+ `, [(0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cM)('starting', `
+ background: var(--n-color-loading);
+ `), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cM)('finishing', `
+ background: var(--n-color-loading);
+ transition:
+ max-width .2s linear,
+ background .2s linear;
+ `), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cM)('error', `
+ background: var(--n-color-error);
+ transition:
+ max-width .2s linear,
+ background .2s linear;
+ `)])]));
 
 /***/ }),
 
@@ -44591,6 +45138,37 @@ const loadingBarDark = {
     }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadingBarDark);
+
+
+/***/ }),
+
+/***/ "./node_modules/naive-ui/es/loading-bar/styles/light.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/naive-ui/es/loading-bar/styles/light.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _styles_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../_styles/common */ "./node_modules/naive-ui/es/_styles/common/light.js");
+
+const self = (vars) => {
+    const { primaryColor, errorColor } = vars;
+    return {
+        colorError: errorColor,
+        colorLoading: primaryColor,
+        height: '2px'
+    };
+};
+const loadingBarLight = {
+    name: 'LoadingBar',
+    common: _styles_common__WEBPACK_IMPORTED_MODULE_0__["default"],
+    self
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadingBarLight);
 
 
 /***/ }),
@@ -44957,6 +45535,385 @@ const menuLight = (0,_mixins_use_theme__WEBPACK_IMPORTED_MODULE_1__.createTheme)
 
 /***/ }),
 
+/***/ "./node_modules/naive-ui/es/message/src/Message.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/naive-ui/es/message/src/Message.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _internal_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../_internal/icons */ "./node_modules/naive-ui/es/_internal/icons/Info.js");
+/* harmony import */ var _internal_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_internal/icons */ "./node_modules/naive-ui/es/_internal/icons/Success.js");
+/* harmony import */ var _internal_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../_internal/icons */ "./node_modules/naive-ui/es/_internal/icons/Warning.js");
+/* harmony import */ var _internal_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../_internal/icons */ "./node_modules/naive-ui/es/_internal/icons/Error.js");
+/* harmony import */ var _internal__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../_internal */ "./node_modules/naive-ui/es/_internal/icon-switch-transition/src/IconSwitchTransition.js");
+/* harmony import */ var _internal__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../_internal */ "./node_modules/naive-ui/es/_internal/close/src/Close.js");
+/* harmony import */ var _internal__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../_internal */ "./node_modules/naive-ui/es/_internal/loading/src/Loading.js");
+/* harmony import */ var _internal__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../_internal */ "./node_modules/naive-ui/es/_internal/icon/src/Icon.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../_utils */ "./node_modules/naive-ui/es/_utils/cssr/create-key.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../_utils */ "./node_modules/naive-ui/es/_utils/vue/render.js");
+/* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../_mixins */ "./node_modules/naive-ui/es/_mixins/use-config.js");
+/* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../_mixins */ "./node_modules/naive-ui/es/_mixins/use-rtl.js");
+/* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../_mixins */ "./node_modules/naive-ui/es/_mixins/use-theme.js");
+/* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../_mixins */ "./node_modules/naive-ui/es/_mixins/use-css-vars-class.js");
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../styles */ "./node_modules/naive-ui/es/message/styles/light.js");
+/* harmony import */ var _message_props__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./message-props */ "./node_modules/naive-ui/es/message/src/message-props.js");
+/* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./context */ "./node_modules/naive-ui/es/message/src/context.js");
+/* harmony import */ var _styles_index_cssr__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./styles/index.cssr */ "./node_modules/naive-ui/es/message/src/styles/index.cssr.js");
+
+
+
+
+
+
+
+
+
+const iconRenderMap = {
+    info: () => (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(_internal_icons__WEBPACK_IMPORTED_MODULE_1__["default"], null),
+    success: () => (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(_internal_icons__WEBPACK_IMPORTED_MODULE_2__["default"], null),
+    warning: () => (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(_internal_icons__WEBPACK_IMPORTED_MODULE_3__["default"], null),
+    error: () => (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(_internal_icons__WEBPACK_IMPORTED_MODULE_4__["default"], null),
+    default: () => null
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
+    name: 'Message',
+    props: Object.assign(Object.assign({}, _message_props__WEBPACK_IMPORTED_MODULE_5__.messageProps), { render: Function }),
+    setup(props) {
+        const { inlineThemeDisabled, mergedRtlRef } = (0,_mixins__WEBPACK_IMPORTED_MODULE_6__["default"])(props);
+        const { props: messageProviderProps, mergedClsPrefixRef
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+         } = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)(_context__WEBPACK_IMPORTED_MODULE_7__.messageProviderInjectionKey);
+        const rtlEnabledRef = (0,_mixins__WEBPACK_IMPORTED_MODULE_8__.useRtl)('Message', mergedRtlRef, mergedClsPrefixRef);
+        const themeRef = (0,_mixins__WEBPACK_IMPORTED_MODULE_9__["default"])('Message', '-message', _styles_index_cssr__WEBPACK_IMPORTED_MODULE_10__["default"], _styles__WEBPACK_IMPORTED_MODULE_11__["default"], messageProviderProps, mergedClsPrefixRef);
+        const cssVarsRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
+            const { type } = props;
+            const { common: { cubicBezierEaseInOut }, self: { padding, margin, maxWidth, iconMargin, closeMargin, closeSize, iconSize, fontSize, lineHeight, borderRadius, iconColorInfo, iconColorSuccess, iconColorWarning, iconColorError, iconColorLoading, closeIconSize, closeBorderRadius, [(0,_utils__WEBPACK_IMPORTED_MODULE_12__.createKey)('textColor', type)]: textColor, [(0,_utils__WEBPACK_IMPORTED_MODULE_12__.createKey)('boxShadow', type)]: boxShadow, [(0,_utils__WEBPACK_IMPORTED_MODULE_12__.createKey)('color', type)]: color, [(0,_utils__WEBPACK_IMPORTED_MODULE_12__.createKey)('closeColorHover', type)]: closeColorHover, [(0,_utils__WEBPACK_IMPORTED_MODULE_12__.createKey)('closeColorPressed', type)]: closeColorPressed, [(0,_utils__WEBPACK_IMPORTED_MODULE_12__.createKey)('closeIconColor', type)]: closeIconColor, [(0,_utils__WEBPACK_IMPORTED_MODULE_12__.createKey)('closeIconColorPressed', type)]: closeIconColorPressed, [(0,_utils__WEBPACK_IMPORTED_MODULE_12__.createKey)('closeIconColorHover', type)]: closeIconColorHover } } = themeRef.value;
+            return {
+                '--n-bezier': cubicBezierEaseInOut,
+                '--n-margin': margin,
+                '--n-padding': padding,
+                '--n-max-width': maxWidth,
+                '--n-font-size': fontSize,
+                '--n-icon-margin': iconMargin,
+                '--n-icon-size': iconSize,
+                '--n-close-icon-size': closeIconSize,
+                '--n-close-border-radius': closeBorderRadius,
+                '--n-close-size': closeSize,
+                '--n-close-margin': closeMargin,
+                '--n-text-color': textColor,
+                '--n-color': color,
+                '--n-box-shadow': boxShadow,
+                '--n-icon-color-info': iconColorInfo,
+                '--n-icon-color-success': iconColorSuccess,
+                '--n-icon-color-warning': iconColorWarning,
+                '--n-icon-color-error': iconColorError,
+                '--n-icon-color-loading': iconColorLoading,
+                '--n-close-color-hover': closeColorHover,
+                '--n-close-color-pressed': closeColorPressed,
+                '--n-close-icon-color': closeIconColor,
+                '--n-close-icon-color-pressed': closeIconColorPressed,
+                '--n-close-icon-color-hover': closeIconColorHover,
+                '--n-line-height': lineHeight,
+                '--n-border-radius': borderRadius
+            };
+        });
+        const themeClassHandle = inlineThemeDisabled
+            ? (0,_mixins__WEBPACK_IMPORTED_MODULE_13__.useThemeClass)('message', (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => props.type[0]), cssVarsRef, {})
+            : undefined;
+        return {
+            mergedClsPrefix: mergedClsPrefixRef,
+            rtlEnabled: rtlEnabledRef,
+            messageProviderProps,
+            handleClose() {
+                var _a;
+                (_a = props.onClose) === null || _a === void 0 ? void 0 : _a.call(props);
+            },
+            cssVars: inlineThemeDisabled ? undefined : cssVarsRef,
+            themeClass: themeClassHandle === null || themeClassHandle === void 0 ? void 0 : themeClassHandle.themeClass,
+            onRender: themeClassHandle === null || themeClassHandle === void 0 ? void 0 : themeClassHandle.onRender,
+            placement: messageProviderProps.placement
+        };
+    },
+    render() {
+        const { render: renderMessage, type, closable, content, mergedClsPrefix, cssVars, themeClass, onRender, icon, handleClose, showIcon } = this;
+        onRender === null || onRender === void 0 ? void 0 : onRender();
+        let iconNode;
+        return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.h)("div", { class: [`${mergedClsPrefix}-message-wrapper`, themeClass], onMouseenter: this.onMouseenter, onMouseleave: this.onMouseleave, style: [
+                {
+                    alignItems: this.placement.startsWith('top')
+                        ? 'flex-start'
+                        : 'flex-end'
+                },
+                cssVars
+            ] }, renderMessage ? (renderMessage(this.$props)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.h)("div", { class: [
+                `${mergedClsPrefix}-message ${mergedClsPrefix}-message--${type}-type`,
+                this.rtlEnabled && `${mergedClsPrefix}-message--rtl`
+            ] },
+            (iconNode = createIconVNode(icon, type, mergedClsPrefix)) &&
+                showIcon ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.h)("div", { class: `${mergedClsPrefix}-message__icon ${mergedClsPrefix}-message__icon--${type}-type` },
+                (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(_internal__WEBPACK_IMPORTED_MODULE_14__["default"], null, {
+                    default: () => iconNode
+                }))) : null,
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)("div", { class: `${mergedClsPrefix}-message__content` }, (0,_utils__WEBPACK_IMPORTED_MODULE_15__.render)(content)),
+            closable ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(_internal__WEBPACK_IMPORTED_MODULE_16__["default"], { clsPrefix: mergedClsPrefix, class: `${mergedClsPrefix}-message__close`, onClick: handleClose, absolute: true })) : null))));
+    }
+}));
+function createIconVNode(icon, type, clsPrefix) {
+    if (typeof icon === 'function') {
+        return icon();
+    }
+    else {
+        const innerIcon = type === 'loading' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(_internal__WEBPACK_IMPORTED_MODULE_17__["default"], { clsPrefix: clsPrefix, strokeWidth: 24, scale: 0.85 })) : (iconRenderMap[type]());
+        if (!innerIcon)
+            return null;
+        return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(_internal__WEBPACK_IMPORTED_MODULE_18__["default"], { clsPrefix: clsPrefix, key: type }, {
+            default: () => innerIcon
+        }));
+    }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/naive-ui/es/message/src/MessageEnvironment.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/naive-ui/es/message/src/MessageEnvironment.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _internal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_internal */ "./node_modules/naive-ui/es/_internal/fade-in-expand-transition/src/FadeInExpandTransition.js");
+/* harmony import */ var _Message__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Message */ "./node_modules/naive-ui/es/message/src/Message.js");
+/* harmony import */ var _message_props__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./message-props */ "./node_modules/naive-ui/es/message/src/message-props.js");
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
+    name: 'MessageEnvironment',
+    props: Object.assign(Object.assign({}, _message_props__WEBPACK_IMPORTED_MODULE_1__.messageProps), { duration: {
+            type: Number,
+            default: 3000
+        }, onAfterLeave: Function, onLeave: Function, internalKey: {
+            type: String,
+            required: true
+        }, 
+        // private
+        onInternalAfterLeave: Function, 
+        // deprecated
+        onHide: Function, onAfterHide: Function }),
+    setup(props) {
+        let timerId = null;
+        const showRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(true);
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(() => {
+            setHideTimeout();
+        });
+        function setHideTimeout() {
+            const { duration } = props;
+            if (duration) {
+                timerId = window.setTimeout(hide, duration);
+            }
+        }
+        function handleMouseenter(e) {
+            if (e.currentTarget !== e.target)
+                return;
+            if (timerId !== null) {
+                window.clearTimeout(timerId);
+                timerId = null;
+            }
+        }
+        function handleMouseleave(e) {
+            if (e.currentTarget !== e.target)
+                return;
+            setHideTimeout();
+        }
+        function hide() {
+            const { onHide } = props;
+            showRef.value = false;
+            if (timerId) {
+                window.clearTimeout(timerId);
+                timerId = null;
+            }
+            // deprecated
+            if (onHide)
+                onHide();
+        }
+        function handleClose() {
+            const { onClose } = props;
+            if (onClose)
+                onClose();
+            hide();
+        }
+        function handleAfterLeave() {
+            const { onAfterLeave, onInternalAfterLeave, onAfterHide, internalKey } = props;
+            if (onAfterLeave)
+                onAfterLeave();
+            if (onInternalAfterLeave)
+                onInternalAfterLeave(internalKey);
+            // deprecated
+            if (onAfterHide)
+                onAfterHide();
+        }
+        // deprecated
+        function deactivate() {
+            hide();
+        }
+        return {
+            show: showRef,
+            hide,
+            handleClose,
+            handleAfterLeave,
+            handleMouseleave,
+            handleMouseenter,
+            deactivate
+        };
+    },
+    render() {
+        return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(_internal__WEBPACK_IMPORTED_MODULE_2__["default"], { appear: true, onAfterLeave: this.handleAfterLeave, onLeave: this.onLeave }, {
+            default: () => [
+                this.show ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(_Message__WEBPACK_IMPORTED_MODULE_3__["default"], { content: this.content, type: this.type, icon: this.icon, showIcon: this.showIcon, closable: this.closable, onClose: this.handleClose, onMouseenter: this.keepAliveOnHover ? this.handleMouseenter : undefined, onMouseleave: this.keepAliveOnHover ? this.handleMouseleave : undefined })) : null
+            ]
+        }));
+    }
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/naive-ui/es/message/src/MessageProvider.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/naive-ui/es/message/src/MessageProvider.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "messageProviderProps": () => (/* binding */ messageProviderProps)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var seemly__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! seemly */ "./node_modules/seemly/es/misc/index.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../_utils */ "./node_modules/naive-ui/es/_utils/vue/omit.js");
+/* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../_mixins */ "./node_modules/naive-ui/es/_mixins/use-theme.js");
+/* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_mixins */ "./node_modules/naive-ui/es/_mixins/use-config.js");
+/* harmony import */ var _MessageEnvironment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MessageEnvironment */ "./node_modules/naive-ui/es/message/src/MessageEnvironment.js");
+/* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./context */ "./node_modules/naive-ui/es/message/src/context.js");
+
+
+
+
+
+
+const messageProviderProps = Object.assign(Object.assign({}, _mixins__WEBPACK_IMPORTED_MODULE_1__["default"].props), { to: [String, Object], duration: {
+        type: Number,
+        default: 3000
+    }, keepAliveOnHover: Boolean, max: Number, placement: {
+        type: String,
+        default: 'top'
+    }, closable: Boolean, containerStyle: [String, Object] });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
+    name: 'MessageProvider',
+    props: messageProviderProps,
+    setup(props) {
+        const { mergedClsPrefixRef } = (0,_mixins__WEBPACK_IMPORTED_MODULE_2__["default"])(props);
+        const messageListRef = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
+        const messageRefs = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)({});
+        const api = {
+            create(content, options) {
+                return create(content, Object.assign({ type: 'default' }, options));
+            },
+            info(content, options) {
+                return create(content, Object.assign(Object.assign({}, options), { type: 'info' }));
+            },
+            success(content, options) {
+                return create(content, Object.assign(Object.assign({}, options), { type: 'success' }));
+            },
+            warning(content, options) {
+                return create(content, Object.assign(Object.assign({}, options), { type: 'warning' }));
+            },
+            error(content, options) {
+                return create(content, Object.assign(Object.assign({}, options), { type: 'error' }));
+            },
+            loading(content, options) {
+                return create(content, Object.assign(Object.assign({}, options), { type: 'loading' }));
+            },
+            destroyAll
+        };
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.provide)(_context__WEBPACK_IMPORTED_MODULE_3__.messageProviderInjectionKey, {
+            props,
+            mergedClsPrefixRef
+        });
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.provide)(_context__WEBPACK_IMPORTED_MODULE_3__.messageApiInjectionKey, api);
+        function create(content, options) {
+            const key = (0,seemly__WEBPACK_IMPORTED_MODULE_4__.createId)();
+            const messageReactive = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)(Object.assign(Object.assign({}, options), { content,
+                key, destroy: () => {
+                    var _a;
+                    (_a = messageRefs.value[key]) === null || _a === void 0 ? void 0 : _a.hide();
+                } }));
+            const { max } = props;
+            if (max && messageListRef.value.length >= max) {
+                messageListRef.value.shift();
+            }
+            messageListRef.value.push(messageReactive);
+            return messageReactive;
+        }
+        function handleAfterLeave(key) {
+            messageListRef.value.splice(messageListRef.value.findIndex((message) => message.key === key), 1);
+            // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+            delete messageRefs.value[key];
+        }
+        function destroyAll() {
+            Object.values(messageRefs.value).forEach((messageInstRef) => {
+                messageInstRef.hide();
+            });
+        }
+        return Object.assign({
+            mergedClsPrefix: mergedClsPrefixRef,
+            messageRefs,
+            messageList: messageListRef,
+            handleAfterLeave
+        }, api);
+    },
+    render() {
+        var _a, _b, _c;
+        return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (_b = (_a = this.$slots).default) === null || _b === void 0 ? void 0 :
+            _b.call(_a),
+            this.messageList.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(vue__WEBPACK_IMPORTED_MODULE_0__.Teleport, { to: (_c = this.to) !== null && _c !== void 0 ? _c : 'body' },
+                (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)("div", { class: [
+                        `${this.mergedClsPrefix}-message-container`,
+                        `${this.mergedClsPrefix}-message-container--${this.placement}`
+                    ], key: "message-container", style: this.containerStyle }, this.messageList.map((message) => {
+                    return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(_MessageEnvironment__WEBPACK_IMPORTED_MODULE_5__["default"], Object.assign({ ref: ((inst) => {
+                            if (inst) {
+                                this.messageRefs[message.key] = inst;
+                            }
+                        }), internalKey: message.key, onInternalAfterLeave: this.handleAfterLeave }, (0,_utils__WEBPACK_IMPORTED_MODULE_6__.omit)(message, ['destroy'], undefined), { duration: message.duration === undefined
+                            ? this.duration
+                            : message.duration, keepAliveOnHover: message.keepAliveOnHover === undefined
+                            ? this.keepAliveOnHover
+                            : message.keepAliveOnHover, closable: message.closable === undefined
+                            ? this.closable
+                            : message.closable })));
+                })))) : null));
+    }
+}));
+
+
+/***/ }),
+
 /***/ "./node_modules/naive-ui/es/message/src/context.js":
 /*!*********************************************************!*\
   !*** ./node_modules/naive-ui/es/message/src/context.js ***!
@@ -44974,6 +45931,188 @@ __webpack_require__.r(__webpack_exports__);
 const messageApiInjectionKey = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.createInjectionKey)('n-message-api');
 const messageProviderInjectionKey = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.createInjectionKey)('n-message-provider');
 
+
+/***/ }),
+
+/***/ "./node_modules/naive-ui/es/message/src/message-props.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/naive-ui/es/message/src/message-props.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "messageProps": () => (/* binding */ messageProps)
+/* harmony export */ });
+const messageProps = {
+    icon: Function,
+    type: {
+        type: String,
+        default: 'info'
+    },
+    content: [String, Number, Function],
+    showIcon: {
+        type: Boolean,
+        default: true
+    },
+    closable: Boolean,
+    keepAliveOnHover: Boolean,
+    onClose: Function,
+    onMouseenter: Function,
+    onMouseleave: Function
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/naive-ui/es/message/src/styles/index.cssr.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/naive-ui/es/message/src/styles/index.cssr.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils_cssr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../_utils/cssr */ "./node_modules/naive-ui/es/_utils/cssr/index.js");
+/* harmony import */ var _styles_transitions_icon_switch_cssr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../_styles/transitions/icon-switch.cssr */ "./node_modules/naive-ui/es/_styles/transitions/icon-switch.cssr.js");
+/* harmony import */ var _styles_transitions_fade_in_height_expand_cssr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../_styles/transitions/fade-in-height-expand.cssr */ "./node_modules/naive-ui/es/_styles/transitions/fade-in-height-expand.cssr.js");
+
+
+ // vars:
+// --n-margin
+// --n-bezier
+// --n-padding
+// --n-max-width
+// --n-font-size
+// --n-icon-margin
+// --n-icon-size
+// --n-text-color
+// --n-color
+// --n-box-shadow
+// --n-icon-color-default
+// --n-icon-color-info
+// --n-icon-color-success
+// --n-icon-color-warning
+// --n-icon-color-error
+// --n-icon-color-loading
+// --n-close-size
+// --n-close-icon-size
+// --n-close-margin
+// --n-close-color-hover
+// --n-close-color-pressed
+// --n-close-border-radius
+// --n-close-icon-color
+// --n-close-icon-color-pressed
+// --n-close-icon-color-hover
+// --n-border-radius
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.c)([(0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cB)('message-wrapper', `
+ margin: var(--n-margin);
+ z-index: 0;
+ transform-origin: top center;
+ display: flex;
+ `, [(0,_styles_transitions_fade_in_height_expand_cssr__WEBPACK_IMPORTED_MODULE_1__.fadeInHeightExpandTransition)({
+  overflow: 'visible',
+  originalTransition: 'transform .3s var(--n-bezier)',
+  enterToProps: {
+    transform: 'scale(1)'
+  },
+  leaveToProps: {
+    transform: 'scale(0.85)'
+  }
+})]), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cB)('message', `
+ box-sizing: border-box;
+ display: flex;
+ align-items: center;
+ transition:
+ color .3s var(--n-bezier),
+ box-shadow .3s var(--n-bezier),
+ background-color .3s var(--n-bezier),
+ opacity .3s var(--n-bezier),
+ transform .3s var(--n-bezier),
+ margin-bottom .3s var(--n-bezier);
+ padding: var(--n-padding);
+ border-radius: var(--n-border-radius);
+ flex-wrap: nowrap;
+ overflow: hidden;
+ max-width: var(--n-max-width);
+ color: var(--n-text-color);
+ background-color: var(--n-color);
+ box-shadow: var(--n-box-shadow);
+ `, [(0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cE)('content', `
+ display: inline-block;
+ line-height: var(--n-line-height);
+ font-size: var(--n-font-size);
+ `), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cE)('icon', `
+ position: relative;
+ margin: var(--n-icon-margin);
+ height: var(--n-icon-size);
+ width: var(--n-icon-size);
+ font-size: var(--n-icon-size);
+ flex-shrink: 0;
+ `, [['default', 'info', 'success', 'warning', 'error', 'loading'].map(type => (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cM)(`${type}-type`, [(0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.c)('> *', `
+ color: var(--n-icon-color-${type});
+ transition: color .3s var(--n-bezier);
+ `)])), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.c)('> *', `
+ position: absolute;
+ left: 0;
+ top: 0;
+ right: 0;
+ bottom: 0;
+ `, [(0,_styles_transitions_icon_switch_cssr__WEBPACK_IMPORTED_MODULE_2__.iconSwitchTransition)()])]), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cE)('close', `
+ margin: var(--n-close-margin);
+ transition:
+ background-color .3s var(--n-bezier),
+ color .3s var(--n-bezier);
+ flex-shrink: 0;
+ `, [(0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.c)('&:hover', `
+ color: var(--n-close-icon-color-hover);
+ `), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.c)('&:active', `
+ color: var(--n-close-icon-color-pressed);
+ `)])]), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cB)('message-container', `
+ z-index: 6000;
+ position: fixed;
+ height: 0;
+ overflow: visible;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ `, [(0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cM)('top', `
+ top: 12px;
+ left: 0;
+ right: 0;
+ `), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cM)('top-left', `
+ top: 12px;
+ left: 12px;
+ right: 0;
+ align-items: flex-start;
+ `), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cM)('top-right', `
+ top: 12px;
+ left: 0;
+ right: 12px;
+ align-items: flex-end;
+ `), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cM)('bottom', `
+ bottom: 4px;
+ left: 0;
+ right: 0;
+ justify-content: flex-end;
+ `), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cM)('bottom-left', `
+ bottom: 4px;
+ left: 12px;
+ right: 0;
+ justify-content: flex-end;
+ align-items: flex-start;
+ `), (0,_utils_cssr__WEBPACK_IMPORTED_MODULE_0__.cM)('bottom-right', `
+ bottom: 4px;
+ left: 0;
+ right: 12px;
+ justify-content: flex-end;
+ align-items: flex-end;
+ `)])]));
 
 /***/ }),
 
@@ -50413,6 +51552,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./assets/js/views/Login.vue?vue&type=style&index=0&id=1d643110&lang=scss":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./assets/js/views/Login.vue?vue&type=style&index=0&id=1d643110&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Login_vue_vue_type_style_index_0_id_1d643110_lang_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Login.vue?vue&type=style&index=0&id=1d643110&lang=scss */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./assets/js/views/Login.vue?vue&type=style&index=0&id=1d643110&lang=scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Login_vue_vue_type_style_index_0_id_1d643110_lang_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Login_vue_vue_type_style_index_0_id_1d643110_lang_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -52389,13 +53558,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Login_vue_vue_type_template_id_1d643110__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Login.vue?vue&type=template&id=1d643110 */ "./assets/js/views/Login.vue?vue&type=template&id=1d643110");
 /* harmony import */ var _Login_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Login.vue?vue&type=script&lang=js */ "./assets/js/views/Login.vue?vue&type=script&lang=js");
-/* harmony import */ var C_Users_reino_Desktop_webdevelopment_vuejs_developer_platform_extension_vue_Developer_Platform_Extension_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _Login_vue_vue_type_style_index_0_id_1d643110_lang_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Login.vue?vue&type=style&index=0&id=1d643110&lang=scss */ "./assets/js/views/Login.vue?vue&type=style&index=0&id=1d643110&lang=scss");
+/* harmony import */ var C_Users_reino_Desktop_webdevelopment_vuejs_developer_platform_extension_vue_Developer_Platform_Extension_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_reino_Desktop_webdevelopment_vuejs_developer_platform_extension_vue_Developer_Platform_Extension_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Login_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Login_vue_vue_type_template_id_1d643110__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"assets/js/views/Login.vue"]])
+
+
+const __exports__ = /*#__PURE__*/(0,C_Users_reino_Desktop_webdevelopment_vuejs_developer_platform_extension_vue_Developer_Platform_Extension_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Login_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Login_vue_vue_type_template_id_1d643110__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"assets/js/views/Login.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -52747,6 +53919,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NavBar_vue_vue_type_style_index_0_id_e0429d5e_lang_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NavBar.vue?vue&type=style&index=0&id=e0429d5e&lang=scss */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./assets/js/components/NavBar.vue?vue&type=style&index=0&id=e0429d5e&lang=scss");
+
+
+/***/ }),
+
+/***/ "./assets/js/views/Login.vue?vue&type=style&index=0&id=1d643110&lang=scss":
+/*!********************************************************************************!*\
+  !*** ./assets/js/views/Login.vue?vue&type=style&index=0&id=1d643110&lang=scss ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Login_vue_vue_type_style_index_0_id_1d643110_lang_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Login.vue?vue&type=style&index=0&id=1d643110&lang=scss */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./assets/js/views/Login.vue?vue&type=style&index=0&id=1d643110&lang=scss");
 
 
 /***/ }),
@@ -56366,6 +57551,1229 @@ var index = {
 
 /***/ }),
 
+/***/ "./node_modules/@firebase/analytics/dist/esm/index.esm2017.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@firebase/analytics/dist/esm/index.esm2017.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getAnalytics": () => (/* binding */ getAnalytics),
+/* harmony export */   "initializeAnalytics": () => (/* binding */ initializeAnalytics),
+/* harmony export */   "isSupported": () => (/* binding */ isSupported),
+/* harmony export */   "logEvent": () => (/* binding */ logEvent),
+/* harmony export */   "setAnalyticsCollectionEnabled": () => (/* binding */ setAnalyticsCollectionEnabled),
+/* harmony export */   "setConsent": () => (/* binding */ setConsent),
+/* harmony export */   "setCurrentScreen": () => (/* binding */ setCurrentScreen),
+/* harmony export */   "setDefaultEventParameters": () => (/* binding */ setDefaultEventParameters),
+/* harmony export */   "setUserId": () => (/* binding */ setUserId),
+/* harmony export */   "setUserProperties": () => (/* binding */ setUserProperties),
+/* harmony export */   "settings": () => (/* binding */ settings)
+/* harmony export */ });
+/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @firebase/app */ "./node_modules/@firebase/app/dist/esm/index.esm2017.js");
+/* harmony import */ var _firebase_logger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @firebase/logger */ "./node_modules/@firebase/logger/dist/esm/index.esm2017.js");
+/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @firebase/util */ "./node_modules/@firebase/util/dist/index.esm2017.js");
+/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @firebase/component */ "./node_modules/@firebase/component/dist/esm/index.esm2017.js");
+/* harmony import */ var _firebase_installations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @firebase/installations */ "./node_modules/@firebase/installations/dist/esm/index.esm2017.js");
+
+
+
+
+
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Type constant for Firebase Analytics.
+ */
+const ANALYTICS_TYPE = 'analytics';
+// Key to attach FID to in gtag params.
+const GA_FID_KEY = 'firebase_id';
+const ORIGIN_KEY = 'origin';
+const FETCH_TIMEOUT_MILLIS = 60 * 1000;
+const DYNAMIC_CONFIG_URL = 'https://firebase.googleapis.com/v1alpha/projects/-/apps/{app-id}/webConfig';
+const GTAG_URL = 'https://www.googletagmanager.com/gtag/js';
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+const logger = new _firebase_logger__WEBPACK_IMPORTED_MODULE_1__.Logger('@firebase/analytics');
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Makeshift polyfill for Promise.allSettled(). Resolves when all promises
+ * have either resolved or rejected.
+ *
+ * @param promises Array of promises to wait for.
+ */
+function promiseAllSettled(promises) {
+    return Promise.all(promises.map(promise => promise.catch(e => e)));
+}
+/**
+ * Inserts gtag script tag into the page to asynchronously download gtag.
+ * @param dataLayerName Name of datalayer (most often the default, "_dataLayer").
+ */
+function insertScriptTag(dataLayerName, measurementId) {
+    const script = document.createElement('script');
+    // We are not providing an analyticsId in the URL because it would trigger a `page_view`
+    // without fid. We will initialize ga-id using gtag (config) command together with fid.
+    script.src = `${GTAG_URL}?l=${dataLayerName}&id=${measurementId}`;
+    script.async = true;
+    document.head.appendChild(script);
+}
+/**
+ * Get reference to, or create, global datalayer.
+ * @param dataLayerName Name of datalayer (most often the default, "_dataLayer").
+ */
+function getOrCreateDataLayer(dataLayerName) {
+    // Check for existing dataLayer and create if needed.
+    let dataLayer = [];
+    if (Array.isArray(window[dataLayerName])) {
+        dataLayer = window[dataLayerName];
+    }
+    else {
+        window[dataLayerName] = dataLayer;
+    }
+    return dataLayer;
+}
+/**
+ * Wrapped gtag logic when gtag is called with 'config' command.
+ *
+ * @param gtagCore Basic gtag function that just appends to dataLayer.
+ * @param initializationPromisesMap Map of appIds to their initialization promises.
+ * @param dynamicConfigPromisesList Array of dynamic config fetch promises.
+ * @param measurementIdToAppId Map of GA measurementIDs to corresponding Firebase appId.
+ * @param measurementId GA Measurement ID to set config for.
+ * @param gtagParams Gtag config params to set.
+ */
+async function gtagOnConfig(gtagCore, initializationPromisesMap, dynamicConfigPromisesList, measurementIdToAppId, measurementId, gtagParams) {
+    // If config is already fetched, we know the appId and can use it to look up what FID promise we
+    /// are waiting for, and wait only on that one.
+    const correspondingAppId = measurementIdToAppId[measurementId];
+    try {
+        if (correspondingAppId) {
+            await initializationPromisesMap[correspondingAppId];
+        }
+        else {
+            // If config is not fetched yet, wait for all configs (we don't know which one we need) and
+            // find the appId (if any) corresponding to this measurementId. If there is one, wait on
+            // that appId's initialization promise. If there is none, promise resolves and gtag
+            // call goes through.
+            const dynamicConfigResults = await promiseAllSettled(dynamicConfigPromisesList);
+            const foundConfig = dynamicConfigResults.find(config => config.measurementId === measurementId);
+            if (foundConfig) {
+                await initializationPromisesMap[foundConfig.appId];
+            }
+        }
+    }
+    catch (e) {
+        logger.error(e);
+    }
+    gtagCore("config" /* CONFIG */, measurementId, gtagParams);
+}
+/**
+ * Wrapped gtag logic when gtag is called with 'event' command.
+ *
+ * @param gtagCore Basic gtag function that just appends to dataLayer.
+ * @param initializationPromisesMap Map of appIds to their initialization promises.
+ * @param dynamicConfigPromisesList Array of dynamic config fetch promises.
+ * @param measurementId GA Measurement ID to log event to.
+ * @param gtagParams Params to log with this event.
+ */
+async function gtagOnEvent(gtagCore, initializationPromisesMap, dynamicConfigPromisesList, measurementId, gtagParams) {
+    try {
+        let initializationPromisesToWaitFor = [];
+        // If there's a 'send_to' param, check if any ID specified matches
+        // an initializeIds() promise we are waiting for.
+        if (gtagParams && gtagParams['send_to']) {
+            let gaSendToList = gtagParams['send_to'];
+            // Make it an array if is isn't, so it can be dealt with the same way.
+            if (!Array.isArray(gaSendToList)) {
+                gaSendToList = [gaSendToList];
+            }
+            // Checking 'send_to' fields requires having all measurement ID results back from
+            // the dynamic config fetch.
+            const dynamicConfigResults = await promiseAllSettled(dynamicConfigPromisesList);
+            for (const sendToId of gaSendToList) {
+                // Any fetched dynamic measurement ID that matches this 'send_to' ID
+                const foundConfig = dynamicConfigResults.find(config => config.measurementId === sendToId);
+                const initializationPromise = foundConfig && initializationPromisesMap[foundConfig.appId];
+                if (initializationPromise) {
+                    initializationPromisesToWaitFor.push(initializationPromise);
+                }
+                else {
+                    // Found an item in 'send_to' that is not associated
+                    // directly with an FID, possibly a group.  Empty this array,
+                    // exit the loop early, and let it get populated below.
+                    initializationPromisesToWaitFor = [];
+                    break;
+                }
+            }
+        }
+        // This will be unpopulated if there was no 'send_to' field , or
+        // if not all entries in the 'send_to' field could be mapped to
+        // a FID. In these cases, wait on all pending initialization promises.
+        if (initializationPromisesToWaitFor.length === 0) {
+            initializationPromisesToWaitFor = Object.values(initializationPromisesMap);
+        }
+        // Run core gtag function with args after all relevant initialization
+        // promises have been resolved.
+        await Promise.all(initializationPromisesToWaitFor);
+        // Workaround for http://b/141370449 - third argument cannot be undefined.
+        gtagCore("event" /* EVENT */, measurementId, gtagParams || {});
+    }
+    catch (e) {
+        logger.error(e);
+    }
+}
+/**
+ * Wraps a standard gtag function with extra code to wait for completion of
+ * relevant initialization promises before sending requests.
+ *
+ * @param gtagCore Basic gtag function that just appends to dataLayer.
+ * @param initializationPromisesMap Map of appIds to their initialization promises.
+ * @param dynamicConfigPromisesList Array of dynamic config fetch promises.
+ * @param measurementIdToAppId Map of GA measurementIDs to corresponding Firebase appId.
+ */
+function wrapGtag(gtagCore, 
+/**
+ * Allows wrapped gtag calls to wait on whichever intialization promises are required,
+ * depending on the contents of the gtag params' `send_to` field, if any.
+ */
+initializationPromisesMap, 
+/**
+ * Wrapped gtag calls sometimes require all dynamic config fetches to have returned
+ * before determining what initialization promises (which include FIDs) to wait for.
+ */
+dynamicConfigPromisesList, 
+/**
+ * Wrapped gtag config calls can narrow down which initialization promise (with FID)
+ * to wait for if the measurementId is already fetched, by getting the corresponding appId,
+ * which is the key for the initialization promises map.
+ */
+measurementIdToAppId) {
+    /**
+     * Wrapper around gtag that ensures FID is sent with gtag calls.
+     * @param command Gtag command type.
+     * @param idOrNameOrParams Measurement ID if command is EVENT/CONFIG, params if command is SET.
+     * @param gtagParams Params if event is EVENT/CONFIG.
+     */
+    async function gtagWrapper(command, idOrNameOrParams, gtagParams) {
+        try {
+            // If event, check that relevant initialization promises have completed.
+            if (command === "event" /* EVENT */) {
+                // If EVENT, second arg must be measurementId.
+                await gtagOnEvent(gtagCore, initializationPromisesMap, dynamicConfigPromisesList, idOrNameOrParams, gtagParams);
+            }
+            else if (command === "config" /* CONFIG */) {
+                // If CONFIG, second arg must be measurementId.
+                await gtagOnConfig(gtagCore, initializationPromisesMap, dynamicConfigPromisesList, measurementIdToAppId, idOrNameOrParams, gtagParams);
+            }
+            else if (command === "consent" /* CONSENT */) {
+                // If CONFIG, second arg must be measurementId.
+                gtagCore("consent" /* CONSENT */, 'update', gtagParams);
+            }
+            else {
+                // If SET, second arg must be params.
+                gtagCore("set" /* SET */, idOrNameOrParams);
+            }
+        }
+        catch (e) {
+            logger.error(e);
+        }
+    }
+    return gtagWrapper;
+}
+/**
+ * Creates global gtag function or wraps existing one if found.
+ * This wrapped function attaches Firebase instance ID (FID) to gtag 'config' and
+ * 'event' calls that belong to the GAID associated with this Firebase instance.
+ *
+ * @param initializationPromisesMap Map of appIds to their initialization promises.
+ * @param dynamicConfigPromisesList Array of dynamic config fetch promises.
+ * @param measurementIdToAppId Map of GA measurementIDs to corresponding Firebase appId.
+ * @param dataLayerName Name of global GA datalayer array.
+ * @param gtagFunctionName Name of global gtag function ("gtag" if not user-specified).
+ */
+function wrapOrCreateGtag(initializationPromisesMap, dynamicConfigPromisesList, measurementIdToAppId, dataLayerName, gtagFunctionName) {
+    // Create a basic core gtag function
+    let gtagCore = function (..._args) {
+        // Must push IArguments object, not an array.
+        window[dataLayerName].push(arguments);
+    };
+    // Replace it with existing one if found
+    if (window[gtagFunctionName] &&
+        typeof window[gtagFunctionName] === 'function') {
+        // @ts-ignore
+        gtagCore = window[gtagFunctionName];
+    }
+    window[gtagFunctionName] = wrapGtag(gtagCore, initializationPromisesMap, dynamicConfigPromisesList, measurementIdToAppId);
+    return {
+        gtagCore,
+        wrappedGtag: window[gtagFunctionName]
+    };
+}
+/**
+ * Returns the script tag in the DOM matching both the gtag url pattern
+ * and the provided data layer name.
+ */
+function findGtagScriptOnPage(dataLayerName) {
+    const scriptTags = window.document.getElementsByTagName('script');
+    for (const tag of Object.values(scriptTags)) {
+        if (tag.src &&
+            tag.src.includes(GTAG_URL) &&
+            tag.src.includes(dataLayerName)) {
+            return tag;
+        }
+    }
+    return null;
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+const ERRORS = {
+    ["already-exists" /* ALREADY_EXISTS */]: 'A Firebase Analytics instance with the appId {$id} ' +
+        ' already exists. ' +
+        'Only one Firebase Analytics instance can be created for each appId.',
+    ["already-initialized" /* ALREADY_INITIALIZED */]: 'initializeAnalytics() cannot be called again with different options than those ' +
+        'it was initially called with. It can be called again with the same options to ' +
+        'return the existing instance, or getAnalytics() can be used ' +
+        'to get a reference to the already-intialized instance.',
+    ["already-initialized-settings" /* ALREADY_INITIALIZED_SETTINGS */]: 'Firebase Analytics has already been initialized.' +
+        'settings() must be called before initializing any Analytics instance' +
+        'or it will have no effect.',
+    ["interop-component-reg-failed" /* INTEROP_COMPONENT_REG_FAILED */]: 'Firebase Analytics Interop Component failed to instantiate: {$reason}',
+    ["invalid-analytics-context" /* INVALID_ANALYTICS_CONTEXT */]: 'Firebase Analytics is not supported in this environment. ' +
+        'Wrap initialization of analytics in analytics.isSupported() ' +
+        'to prevent initialization in unsupported environments. Details: {$errorInfo}',
+    ["indexeddb-unavailable" /* INDEXEDDB_UNAVAILABLE */]: 'IndexedDB unavailable or restricted in this environment. ' +
+        'Wrap initialization of analytics in analytics.isSupported() ' +
+        'to prevent initialization in unsupported environments. Details: {$errorInfo}',
+    ["fetch-throttle" /* FETCH_THROTTLE */]: 'The config fetch request timed out while in an exponential backoff state.' +
+        ' Unix timestamp in milliseconds when fetch request throttling ends: {$throttleEndTimeMillis}.',
+    ["config-fetch-failed" /* CONFIG_FETCH_FAILED */]: 'Dynamic config fetch failed: [{$httpStatus}] {$responseMessage}',
+    ["no-api-key" /* NO_API_KEY */]: 'The "apiKey" field is empty in the local Firebase config. Firebase Analytics requires this field to' +
+        'contain a valid API key.',
+    ["no-app-id" /* NO_APP_ID */]: 'The "appId" field is empty in the local Firebase config. Firebase Analytics requires this field to' +
+        'contain a valid app ID.'
+};
+const ERROR_FACTORY = new _firebase_util__WEBPACK_IMPORTED_MODULE_2__.ErrorFactory('analytics', 'Analytics', ERRORS);
+
+/**
+ * @license
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Backoff factor for 503 errors, which we want to be conservative about
+ * to avoid overloading servers. Each retry interval will be
+ * BASE_INTERVAL_MILLIS * LONG_RETRY_FACTOR ^ retryCount, so the second one
+ * will be ~30 seconds (with fuzzing).
+ */
+const LONG_RETRY_FACTOR = 30;
+/**
+ * Base wait interval to multiplied by backoffFactor^backoffCount.
+ */
+const BASE_INTERVAL_MILLIS = 1000;
+/**
+ * Stubbable retry data storage class.
+ */
+class RetryData {
+    constructor(throttleMetadata = {}, intervalMillis = BASE_INTERVAL_MILLIS) {
+        this.throttleMetadata = throttleMetadata;
+        this.intervalMillis = intervalMillis;
+    }
+    getThrottleMetadata(appId) {
+        return this.throttleMetadata[appId];
+    }
+    setThrottleMetadata(appId, metadata) {
+        this.throttleMetadata[appId] = metadata;
+    }
+    deleteThrottleMetadata(appId) {
+        delete this.throttleMetadata[appId];
+    }
+}
+const defaultRetryData = new RetryData();
+/**
+ * Set GET request headers.
+ * @param apiKey App API key.
+ */
+function getHeaders(apiKey) {
+    return new Headers({
+        Accept: 'application/json',
+        'x-goog-api-key': apiKey
+    });
+}
+/**
+ * Fetches dynamic config from backend.
+ * @param app Firebase app to fetch config for.
+ */
+async function fetchDynamicConfig(appFields) {
+    var _a;
+    const { appId, apiKey } = appFields;
+    const request = {
+        method: 'GET',
+        headers: getHeaders(apiKey)
+    };
+    const appUrl = DYNAMIC_CONFIG_URL.replace('{app-id}', appId);
+    const response = await fetch(appUrl, request);
+    if (response.status !== 200 && response.status !== 304) {
+        let errorMessage = '';
+        try {
+            // Try to get any error message text from server response.
+            const jsonResponse = (await response.json());
+            if ((_a = jsonResponse.error) === null || _a === void 0 ? void 0 : _a.message) {
+                errorMessage = jsonResponse.error.message;
+            }
+        }
+        catch (_ignored) { }
+        throw ERROR_FACTORY.create("config-fetch-failed" /* CONFIG_FETCH_FAILED */, {
+            httpStatus: response.status,
+            responseMessage: errorMessage
+        });
+    }
+    return response.json();
+}
+/**
+ * Fetches dynamic config from backend, retrying if failed.
+ * @param app Firebase app to fetch config for.
+ */
+async function fetchDynamicConfigWithRetry(app, 
+// retryData and timeoutMillis are parameterized to allow passing a different value for testing.
+retryData = defaultRetryData, timeoutMillis) {
+    const { appId, apiKey, measurementId } = app.options;
+    if (!appId) {
+        throw ERROR_FACTORY.create("no-app-id" /* NO_APP_ID */);
+    }
+    if (!apiKey) {
+        if (measurementId) {
+            return {
+                measurementId,
+                appId
+            };
+        }
+        throw ERROR_FACTORY.create("no-api-key" /* NO_API_KEY */);
+    }
+    const throttleMetadata = retryData.getThrottleMetadata(appId) || {
+        backoffCount: 0,
+        throttleEndTimeMillis: Date.now()
+    };
+    const signal = new AnalyticsAbortSignal();
+    setTimeout(async () => {
+        // Note a very low delay, eg < 10ms, can elapse before listeners are initialized.
+        signal.abort();
+    }, timeoutMillis !== undefined ? timeoutMillis : FETCH_TIMEOUT_MILLIS);
+    return attemptFetchDynamicConfigWithRetry({ appId, apiKey, measurementId }, throttleMetadata, signal, retryData);
+}
+/**
+ * Runs one retry attempt.
+ * @param appFields Necessary app config fields.
+ * @param throttleMetadata Ongoing metadata to determine throttling times.
+ * @param signal Abort signal.
+ */
+async function attemptFetchDynamicConfigWithRetry(appFields, { throttleEndTimeMillis, backoffCount }, signal, retryData = defaultRetryData // for testing
+) {
+    var _a, _b;
+    const { appId, measurementId } = appFields;
+    // Starts with a (potentially zero) timeout to support resumption from stored state.
+    // Ensures the throttle end time is honored if the last attempt timed out.
+    // Note the SDK will never make a request if the fetch timeout expires at this point.
+    try {
+        await setAbortableTimeout(signal, throttleEndTimeMillis);
+    }
+    catch (e) {
+        if (measurementId) {
+            logger.warn(`Timed out fetching this Firebase app's measurement ID from the server.` +
+                ` Falling back to the measurement ID ${measurementId}` +
+                ` provided in the "measurementId" field in the local Firebase config. [${(_a = e) === null || _a === void 0 ? void 0 : _a.message}]`);
+            return { appId, measurementId };
+        }
+        throw e;
+    }
+    try {
+        const response = await fetchDynamicConfig(appFields);
+        // Note the SDK only clears throttle state if response is success or non-retriable.
+        retryData.deleteThrottleMetadata(appId);
+        return response;
+    }
+    catch (e) {
+        const error = e;
+        if (!isRetriableError(error)) {
+            retryData.deleteThrottleMetadata(appId);
+            if (measurementId) {
+                logger.warn(`Failed to fetch this Firebase app's measurement ID from the server.` +
+                    ` Falling back to the measurement ID ${measurementId}` +
+                    ` provided in the "measurementId" field in the local Firebase config. [${error === null || error === void 0 ? void 0 : error.message}]`);
+                return { appId, measurementId };
+            }
+            else {
+                throw e;
+            }
+        }
+        const backoffMillis = Number((_b = error === null || error === void 0 ? void 0 : error.customData) === null || _b === void 0 ? void 0 : _b.httpStatus) === 503
+            ? (0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.calculateBackoffMillis)(backoffCount, retryData.intervalMillis, LONG_RETRY_FACTOR)
+            : (0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.calculateBackoffMillis)(backoffCount, retryData.intervalMillis);
+        // Increments backoff state.
+        const throttleMetadata = {
+            throttleEndTimeMillis: Date.now() + backoffMillis,
+            backoffCount: backoffCount + 1
+        };
+        // Persists state.
+        retryData.setThrottleMetadata(appId, throttleMetadata);
+        logger.debug(`Calling attemptFetch again in ${backoffMillis} millis`);
+        return attemptFetchDynamicConfigWithRetry(appFields, throttleMetadata, signal, retryData);
+    }
+}
+/**
+ * Supports waiting on a backoff by:
+ *
+ * <ul>
+ *   <li>Promisifying setTimeout, so we can set a timeout in our Promise chain</li>
+ *   <li>Listening on a signal bus for abort events, just like the Fetch API</li>
+ *   <li>Failing in the same way the Fetch API fails, so timing out a live request and a throttled
+ *       request appear the same.</li>
+ * </ul>
+ *
+ * <p>Visible for testing.
+ */
+function setAbortableTimeout(signal, throttleEndTimeMillis) {
+    return new Promise((resolve, reject) => {
+        // Derives backoff from given end time, normalizing negative numbers to zero.
+        const backoffMillis = Math.max(throttleEndTimeMillis - Date.now(), 0);
+        const timeout = setTimeout(resolve, backoffMillis);
+        // Adds listener, rather than sets onabort, because signal is a shared object.
+        signal.addEventListener(() => {
+            clearTimeout(timeout);
+            // If the request completes before this timeout, the rejection has no effect.
+            reject(ERROR_FACTORY.create("fetch-throttle" /* FETCH_THROTTLE */, {
+                throttleEndTimeMillis
+            }));
+        });
+    });
+}
+/**
+ * Returns true if the {@link Error} indicates a fetch request may succeed later.
+ */
+function isRetriableError(e) {
+    if (!(e instanceof _firebase_util__WEBPACK_IMPORTED_MODULE_2__.FirebaseError) || !e.customData) {
+        return false;
+    }
+    // Uses string index defined by ErrorData, which FirebaseError implements.
+    const httpStatus = Number(e.customData['httpStatus']);
+    return (httpStatus === 429 ||
+        httpStatus === 500 ||
+        httpStatus === 503 ||
+        httpStatus === 504);
+}
+/**
+ * Shims a minimal AbortSignal (copied from Remote Config).
+ *
+ * <p>AbortController's AbortSignal conveniently decouples fetch timeout logic from other aspects
+ * of networking, such as retries. Firebase doesn't use AbortController enough to justify a
+ * polyfill recommendation, like we do with the Fetch API, but this minimal shim can easily be
+ * swapped out if/when we do.
+ */
+class AnalyticsAbortSignal {
+    constructor() {
+        this.listeners = [];
+    }
+    addEventListener(listener) {
+        this.listeners.push(listener);
+    }
+    abort() {
+        this.listeners.forEach(listener => listener());
+    }
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Event parameters to set on 'gtag' during initialization.
+ */
+let defaultEventParametersForInit;
+/**
+ * Logs an analytics event through the Firebase SDK.
+ *
+ * @param gtagFunction Wrapped gtag function that waits for fid to be set before sending an event
+ * @param eventName Google Analytics event name, choose from standard list or use a custom string.
+ * @param eventParams Analytics event parameters.
+ */
+async function logEvent$1(gtagFunction, initializationPromise, eventName, eventParams, options) {
+    if (options && options.global) {
+        gtagFunction("event" /* EVENT */, eventName, eventParams);
+        return;
+    }
+    else {
+        const measurementId = await initializationPromise;
+        const params = Object.assign(Object.assign({}, eventParams), { 'send_to': measurementId });
+        gtagFunction("event" /* EVENT */, eventName, params);
+    }
+}
+/**
+ * Set screen_name parameter for this Google Analytics ID.
+ *
+ * @deprecated Use {@link logEvent} with `eventName` as 'screen_view' and add relevant `eventParams`.
+ * See {@link https://firebase.google.com/docs/analytics/screenviews | Track Screenviews}.
+ *
+ * @param gtagFunction Wrapped gtag function that waits for fid to be set before sending an event
+ * @param screenName Screen name string to set.
+ */
+async function setCurrentScreen$1(gtagFunction, initializationPromise, screenName, options) {
+    if (options && options.global) {
+        gtagFunction("set" /* SET */, { 'screen_name': screenName });
+        return Promise.resolve();
+    }
+    else {
+        const measurementId = await initializationPromise;
+        gtagFunction("config" /* CONFIG */, measurementId, {
+            update: true,
+            'screen_name': screenName
+        });
+    }
+}
+/**
+ * Set user_id parameter for this Google Analytics ID.
+ *
+ * @param gtagFunction Wrapped gtag function that waits for fid to be set before sending an event
+ * @param id User ID string to set
+ */
+async function setUserId$1(gtagFunction, initializationPromise, id, options) {
+    if (options && options.global) {
+        gtagFunction("set" /* SET */, { 'user_id': id });
+        return Promise.resolve();
+    }
+    else {
+        const measurementId = await initializationPromise;
+        gtagFunction("config" /* CONFIG */, measurementId, {
+            update: true,
+            'user_id': id
+        });
+    }
+}
+/**
+ * Set all other user properties other than user_id and screen_name.
+ *
+ * @param gtagFunction Wrapped gtag function that waits for fid to be set before sending an event
+ * @param properties Map of user properties to set
+ */
+async function setUserProperties$1(gtagFunction, initializationPromise, properties, options) {
+    if (options && options.global) {
+        const flatProperties = {};
+        for (const key of Object.keys(properties)) {
+            // use dot notation for merge behavior in gtag.js
+            flatProperties[`user_properties.${key}`] = properties[key];
+        }
+        gtagFunction("set" /* SET */, flatProperties);
+        return Promise.resolve();
+    }
+    else {
+        const measurementId = await initializationPromise;
+        gtagFunction("config" /* CONFIG */, measurementId, {
+            update: true,
+            'user_properties': properties
+        });
+    }
+}
+/**
+ * Set whether collection is enabled for this ID.
+ *
+ * @param enabled If true, collection is enabled for this ID.
+ */
+async function setAnalyticsCollectionEnabled$1(initializationPromise, enabled) {
+    const measurementId = await initializationPromise;
+    window[`ga-disable-${measurementId}`] = !enabled;
+}
+/**
+ * Consent parameters to default to during 'gtag' initialization.
+ */
+let defaultConsentSettingsForInit;
+/**
+ * Sets the variable {@link defaultConsentSettingsForInit} for use in the initialization of
+ * analytics.
+ *
+ * @param consentSettings Maps the applicable end user consent state for gtag.js.
+ */
+function _setConsentDefaultForInit(consentSettings) {
+    defaultConsentSettingsForInit = consentSettings;
+}
+/**
+ * Sets the variable `defaultEventParametersForInit` for use in the initialization of
+ * analytics.
+ *
+ * @param customParams Any custom params the user may pass to gtag.js.
+ */
+function _setDefaultEventParametersForInit(customParams) {
+    defaultEventParametersForInit = customParams;
+}
+
+/**
+ * @license
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+async function validateIndexedDB() {
+    var _a;
+    if (!(0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.isIndexedDBAvailable)()) {
+        logger.warn(ERROR_FACTORY.create("indexeddb-unavailable" /* INDEXEDDB_UNAVAILABLE */, {
+            errorInfo: 'IndexedDB is not available in this environment.'
+        }).message);
+        return false;
+    }
+    else {
+        try {
+            await (0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.validateIndexedDBOpenable)();
+        }
+        catch (e) {
+            logger.warn(ERROR_FACTORY.create("indexeddb-unavailable" /* INDEXEDDB_UNAVAILABLE */, {
+                errorInfo: (_a = e) === null || _a === void 0 ? void 0 : _a.toString()
+            }).message);
+            return false;
+        }
+    }
+    return true;
+}
+/**
+ * Initialize the analytics instance in gtag.js by calling config command with fid.
+ *
+ * NOTE: We combine analytics initialization and setting fid together because we want fid to be
+ * part of the `page_view` event that's sent during the initialization
+ * @param app Firebase app
+ * @param gtagCore The gtag function that's not wrapped.
+ * @param dynamicConfigPromisesList Array of all dynamic config promises.
+ * @param measurementIdToAppId Maps measurementID to appID.
+ * @param installations _FirebaseInstallationsInternal instance.
+ *
+ * @returns Measurement ID.
+ */
+async function _initializeAnalytics(app, dynamicConfigPromisesList, measurementIdToAppId, installations, gtagCore, dataLayerName, options) {
+    var _a;
+    const dynamicConfigPromise = fetchDynamicConfigWithRetry(app);
+    // Once fetched, map measurementIds to appId, for ease of lookup in wrapped gtag function.
+    dynamicConfigPromise
+        .then(config => {
+        measurementIdToAppId[config.measurementId] = config.appId;
+        if (app.options.measurementId &&
+            config.measurementId !== app.options.measurementId) {
+            logger.warn(`The measurement ID in the local Firebase config (${app.options.measurementId})` +
+                ` does not match the measurement ID fetched from the server (${config.measurementId}).` +
+                ` To ensure analytics events are always sent to the correct Analytics property,` +
+                ` update the` +
+                ` measurement ID field in the local config or remove it from the local config.`);
+        }
+    })
+        .catch(e => logger.error(e));
+    // Add to list to track state of all dynamic config promises.
+    dynamicConfigPromisesList.push(dynamicConfigPromise);
+    const fidPromise = validateIndexedDB().then(envIsValid => {
+        if (envIsValid) {
+            return installations.getId();
+        }
+        else {
+            return undefined;
+        }
+    });
+    const [dynamicConfig, fid] = await Promise.all([
+        dynamicConfigPromise,
+        fidPromise
+    ]);
+    // Detect if user has already put the gtag <script> tag on this page with the passed in
+    // data layer name.
+    if (!findGtagScriptOnPage(dataLayerName)) {
+        insertScriptTag(dataLayerName, dynamicConfig.measurementId);
+    }
+    // Detects if there are consent settings that need to be configured.
+    if (defaultConsentSettingsForInit) {
+        gtagCore("consent" /* CONSENT */, 'default', defaultConsentSettingsForInit);
+        _setConsentDefaultForInit(undefined);
+    }
+    // This command initializes gtag.js and only needs to be called once for the entire web app,
+    // but since it is idempotent, we can call it multiple times.
+    // We keep it together with other initialization logic for better code structure.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    gtagCore('js', new Date());
+    // User config added first. We don't want users to accidentally overwrite
+    // base Firebase config properties.
+    const configProperties = (_a = options === null || options === void 0 ? void 0 : options.config) !== null && _a !== void 0 ? _a : {};
+    // guard against developers accidentally setting properties with prefix `firebase_`
+    configProperties[ORIGIN_KEY] = 'firebase';
+    configProperties.update = true;
+    if (fid != null) {
+        configProperties[GA_FID_KEY] = fid;
+    }
+    // It should be the first config command called on this GA-ID
+    // Initialize this GA-ID and set FID on it using the gtag config API.
+    // Note: This will trigger a page_view event unless 'send_page_view' is set to false in
+    // `configProperties`.
+    gtagCore("config" /* CONFIG */, dynamicConfig.measurementId, configProperties);
+    // Detects if there is data that will be set on every event logged from the SDK.
+    if (defaultEventParametersForInit) {
+        gtagCore("set" /* SET */, defaultEventParametersForInit);
+        _setDefaultEventParametersForInit(undefined);
+    }
+    return dynamicConfig.measurementId;
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Analytics Service class.
+ */
+class AnalyticsService {
+    constructor(app) {
+        this.app = app;
+    }
+    _delete() {
+        delete initializationPromisesMap[this.app.options.appId];
+        return Promise.resolve();
+    }
+}
+/**
+ * Maps appId to full initialization promise. Wrapped gtag calls must wait on
+ * all or some of these, depending on the call's `send_to` param and the status
+ * of the dynamic config fetches (see below).
+ */
+let initializationPromisesMap = {};
+/**
+ * List of dynamic config fetch promises. In certain cases, wrapped gtag calls
+ * wait on all these to be complete in order to determine if it can selectively
+ * wait for only certain initialization (FID) promises or if it must wait for all.
+ */
+let dynamicConfigPromisesList = [];
+/**
+ * Maps fetched measurementIds to appId. Populated when the app's dynamic config
+ * fetch completes. If already populated, gtag config calls can use this to
+ * selectively wait for only this app's initialization promise (FID) instead of all
+ * initialization promises.
+ */
+const measurementIdToAppId = {};
+/**
+ * Name for window global data layer array used by GA: defaults to 'dataLayer'.
+ */
+let dataLayerName = 'dataLayer';
+/**
+ * Name for window global gtag function used by GA: defaults to 'gtag'.
+ */
+let gtagName = 'gtag';
+/**
+ * Reproduction of standard gtag function or reference to existing
+ * gtag function on window object.
+ */
+let gtagCoreFunction;
+/**
+ * Wrapper around gtag function that ensures FID is sent with all
+ * relevant event and config calls.
+ */
+let wrappedGtagFunction;
+/**
+ * Flag to ensure page initialization steps (creation or wrapping of
+ * dataLayer and gtag script) are only run once per page load.
+ */
+let globalInitDone = false;
+/**
+ * Configures Firebase Analytics to use custom `gtag` or `dataLayer` names.
+ * Intended to be used if `gtag.js` script has been installed on
+ * this page independently of Firebase Analytics, and is using non-default
+ * names for either the `gtag` function or for `dataLayer`.
+ * Must be called before calling `getAnalytics()` or it won't
+ * have any effect.
+ *
+ * @public
+ *
+ * @param options - Custom gtag and dataLayer names.
+ */
+function settings(options) {
+    if (globalInitDone) {
+        throw ERROR_FACTORY.create("already-initialized" /* ALREADY_INITIALIZED */);
+    }
+    if (options.dataLayerName) {
+        dataLayerName = options.dataLayerName;
+    }
+    if (options.gtagName) {
+        gtagName = options.gtagName;
+    }
+}
+/**
+ * Returns true if no environment mismatch is found.
+ * If environment mismatches are found, throws an INVALID_ANALYTICS_CONTEXT
+ * error that also lists details for each mismatch found.
+ */
+function warnOnBrowserContextMismatch() {
+    const mismatchedEnvMessages = [];
+    if ((0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.isBrowserExtension)()) {
+        mismatchedEnvMessages.push('This is a browser extension environment.');
+    }
+    if (!(0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.areCookiesEnabled)()) {
+        mismatchedEnvMessages.push('Cookies are not available.');
+    }
+    if (mismatchedEnvMessages.length > 0) {
+        const details = mismatchedEnvMessages
+            .map((message, index) => `(${index + 1}) ${message}`)
+            .join(' ');
+        const err = ERROR_FACTORY.create("invalid-analytics-context" /* INVALID_ANALYTICS_CONTEXT */, {
+            errorInfo: details
+        });
+        logger.warn(err.message);
+    }
+}
+/**
+ * Analytics instance factory.
+ * @internal
+ */
+function factory(app, installations, options) {
+    warnOnBrowserContextMismatch();
+    const appId = app.options.appId;
+    if (!appId) {
+        throw ERROR_FACTORY.create("no-app-id" /* NO_APP_ID */);
+    }
+    if (!app.options.apiKey) {
+        if (app.options.measurementId) {
+            logger.warn(`The "apiKey" field is empty in the local Firebase config. This is needed to fetch the latest` +
+                ` measurement ID for this Firebase app. Falling back to the measurement ID ${app.options.measurementId}` +
+                ` provided in the "measurementId" field in the local Firebase config.`);
+        }
+        else {
+            throw ERROR_FACTORY.create("no-api-key" /* NO_API_KEY */);
+        }
+    }
+    if (initializationPromisesMap[appId] != null) {
+        throw ERROR_FACTORY.create("already-exists" /* ALREADY_EXISTS */, {
+            id: appId
+        });
+    }
+    if (!globalInitDone) {
+        // Steps here should only be done once per page: creation or wrapping
+        // of dataLayer and global gtag function.
+        getOrCreateDataLayer(dataLayerName);
+        const { wrappedGtag, gtagCore } = wrapOrCreateGtag(initializationPromisesMap, dynamicConfigPromisesList, measurementIdToAppId, dataLayerName, gtagName);
+        wrappedGtagFunction = wrappedGtag;
+        gtagCoreFunction = gtagCore;
+        globalInitDone = true;
+    }
+    // Async but non-blocking.
+    // This map reflects the completion state of all promises for each appId.
+    initializationPromisesMap[appId] = _initializeAnalytics(app, dynamicConfigPromisesList, measurementIdToAppId, installations, gtagCoreFunction, dataLayerName, options);
+    const analyticsInstance = new AnalyticsService(app);
+    return analyticsInstance;
+}
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/**
+ * Returns an {@link Analytics} instance for the given app.
+ *
+ * @public
+ *
+ * @param app - The {@link @firebase/app#FirebaseApp} to use.
+ */
+function getAnalytics(app = (0,_firebase_app__WEBPACK_IMPORTED_MODULE_0__.getApp)()) {
+    app = (0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.getModularInstance)(app);
+    // Dependencies
+    const analyticsProvider = (0,_firebase_app__WEBPACK_IMPORTED_MODULE_0__._getProvider)(app, ANALYTICS_TYPE);
+    if (analyticsProvider.isInitialized()) {
+        return analyticsProvider.getImmediate();
+    }
+    return initializeAnalytics(app);
+}
+/**
+ * Returns an {@link Analytics} instance for the given app.
+ *
+ * @public
+ *
+ * @param app - The {@link @firebase/app#FirebaseApp} to use.
+ */
+function initializeAnalytics(app, options = {}) {
+    // Dependencies
+    const analyticsProvider = (0,_firebase_app__WEBPACK_IMPORTED_MODULE_0__._getProvider)(app, ANALYTICS_TYPE);
+    if (analyticsProvider.isInitialized()) {
+        const existingInstance = analyticsProvider.getImmediate();
+        if ((0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.deepEqual)(options, analyticsProvider.getOptions())) {
+            return existingInstance;
+        }
+        else {
+            throw ERROR_FACTORY.create("already-initialized" /* ALREADY_INITIALIZED */);
+        }
+    }
+    const analyticsInstance = analyticsProvider.initialize({ options });
+    return analyticsInstance;
+}
+/**
+ * This is a public static method provided to users that wraps four different checks:
+ *
+ * 1. Check if it's not a browser extension environment.
+ * 2. Check if cookies are enabled in current browser.
+ * 3. Check if IndexedDB is supported by the browser environment.
+ * 4. Check if the current browser context is valid for using `IndexedDB.open()`.
+ *
+ * @public
+ *
+ */
+async function isSupported() {
+    if ((0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.isBrowserExtension)()) {
+        return false;
+    }
+    if (!(0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.areCookiesEnabled)()) {
+        return false;
+    }
+    if (!(0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.isIndexedDBAvailable)()) {
+        return false;
+    }
+    try {
+        const isDBOpenable = await (0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.validateIndexedDBOpenable)();
+        return isDBOpenable;
+    }
+    catch (error) {
+        return false;
+    }
+}
+/**
+ * Use gtag `config` command to set `screen_name`.
+ *
+ * @public
+ *
+ * @deprecated Use {@link logEvent} with `eventName` as 'screen_view' and add relevant `eventParams`.
+ * See {@link https://firebase.google.com/docs/analytics/screenviews | Track Screenviews}.
+ *
+ * @param analyticsInstance - The {@link Analytics} instance.
+ * @param screenName - Screen name to set.
+ */
+function setCurrentScreen(analyticsInstance, screenName, options) {
+    analyticsInstance = (0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.getModularInstance)(analyticsInstance);
+    setCurrentScreen$1(wrappedGtagFunction, initializationPromisesMap[analyticsInstance.app.options.appId], screenName, options).catch(e => logger.error(e));
+}
+/**
+ * Use gtag `config` command to set `user_id`.
+ *
+ * @public
+ *
+ * @param analyticsInstance - The {@link Analytics} instance.
+ * @param id - User ID to set.
+ */
+function setUserId(analyticsInstance, id, options) {
+    analyticsInstance = (0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.getModularInstance)(analyticsInstance);
+    setUserId$1(wrappedGtagFunction, initializationPromisesMap[analyticsInstance.app.options.appId], id, options).catch(e => logger.error(e));
+}
+/**
+ * Use gtag `config` command to set all params specified.
+ *
+ * @public
+ */
+function setUserProperties(analyticsInstance, properties, options) {
+    analyticsInstance = (0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.getModularInstance)(analyticsInstance);
+    setUserProperties$1(wrappedGtagFunction, initializationPromisesMap[analyticsInstance.app.options.appId], properties, options).catch(e => logger.error(e));
+}
+/**
+ * Sets whether Google Analytics collection is enabled for this app on this device.
+ * Sets global `window['ga-disable-analyticsId'] = true;`
+ *
+ * @public
+ *
+ * @param analyticsInstance - The {@link Analytics} instance.
+ * @param enabled - If true, enables collection, if false, disables it.
+ */
+function setAnalyticsCollectionEnabled(analyticsInstance, enabled) {
+    analyticsInstance = (0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.getModularInstance)(analyticsInstance);
+    setAnalyticsCollectionEnabled$1(initializationPromisesMap[analyticsInstance.app.options.appId], enabled).catch(e => logger.error(e));
+}
+/**
+ * Adds data that will be set on every event logged from the SDK, including automatic ones.
+ * With gtag's "set" command, the values passed persist on the current page and are passed with
+ * all subsequent events.
+ * @public
+ * @param customParams - Any custom params the user may pass to gtag.js.
+ */
+function setDefaultEventParameters(customParams) {
+    // Check if reference to existing gtag function on window object exists
+    if (wrappedGtagFunction) {
+        wrappedGtagFunction("set" /* SET */, customParams);
+    }
+    else {
+        _setDefaultEventParametersForInit(customParams);
+    }
+}
+/**
+ * Sends a Google Analytics event with given `eventParams`. This method
+ * automatically associates this logged event with this Firebase web
+ * app instance on this device.
+ * List of official event parameters can be found in the gtag.js
+ * reference documentation:
+ * {@link https://developers.google.com/gtagjs/reference/ga4-events
+ * | the GA4 reference documentation}.
+ *
+ * @public
+ */
+function logEvent(analyticsInstance, eventName, eventParams, options) {
+    analyticsInstance = (0,_firebase_util__WEBPACK_IMPORTED_MODULE_2__.getModularInstance)(analyticsInstance);
+    logEvent$1(wrappedGtagFunction, initializationPromisesMap[analyticsInstance.app.options.appId], eventName, eventParams, options).catch(e => logger.error(e));
+}
+/**
+ * Sets the applicable end user consent state for this web app across all gtag references once
+ * Firebase Analytics is initialized.
+ *
+ * Use the {@link ConsentSettings} to specify individual consent type values. By default consent
+ * types are set to "granted".
+ * @public
+ * @param consentSettings - Maps the applicable end user consent state for gtag.js.
+ */
+function setConsent(consentSettings) {
+    // Check if reference to existing gtag function on window object exists
+    if (wrappedGtagFunction) {
+        wrappedGtagFunction("consent" /* CONSENT */, 'update', consentSettings);
+    }
+    else {
+        _setConsentDefaultForInit(consentSettings);
+    }
+}
+
+const name = "@firebase/analytics";
+const version = "0.8.4";
+
+/**
+ * Firebase Analytics
+ *
+ * @packageDocumentation
+ */
+function registerAnalytics() {
+    (0,_firebase_app__WEBPACK_IMPORTED_MODULE_0__._registerComponent)(new _firebase_component__WEBPACK_IMPORTED_MODULE_3__.Component(ANALYTICS_TYPE, (container, { options: analyticsOptions }) => {
+        // getImmediate for FirebaseApp will always succeed
+        const app = container.getProvider('app').getImmediate();
+        const installations = container
+            .getProvider('installations-internal')
+            .getImmediate();
+        return factory(app, installations, analyticsOptions);
+    }, "PUBLIC" /* PUBLIC */));
+    (0,_firebase_app__WEBPACK_IMPORTED_MODULE_0__._registerComponent)(new _firebase_component__WEBPACK_IMPORTED_MODULE_3__.Component('analytics-internal', internalFactory, "PRIVATE" /* PRIVATE */));
+    (0,_firebase_app__WEBPACK_IMPORTED_MODULE_0__.registerVersion)(name, version);
+    // BUILD_TARGET will be replaced by values like esm5, esm2017, cjs5, etc during the compilation
+    (0,_firebase_app__WEBPACK_IMPORTED_MODULE_0__.registerVersion)(name, version, 'esm2017');
+    function internalFactory(container) {
+        try {
+            const analytics = container.getProvider(ANALYTICS_TYPE).getImmediate();
+            return {
+                logEvent: (eventName, eventParams, options) => logEvent(analytics, eventName, eventParams, options)
+            };
+        }
+        catch (e) {
+            throw ERROR_FACTORY.create("interop-component-reg-failed" /* INTEROP_COMPONENT_REG_FAILED */, {
+                reason: e
+            });
+        }
+    }
+}
+registerAnalytics();
+
+
+//# sourceMappingURL=index.esm2017.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/@firebase/app/dist/esm/index.esm2017.js":
 /*!**************************************************************!*\
   !*** ./node_modules/@firebase/app/dist/esm/index.esm2017.js ***!
@@ -57757,6 +60165,1183 @@ class ComponentContainer {
         return Array.from(this.providers.values());
     }
 }
+
+
+//# sourceMappingURL=index.esm2017.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@firebase/installations/dist/esm/index.esm2017.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@firebase/installations/dist/esm/index.esm2017.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "deleteInstallations": () => (/* binding */ deleteInstallations),
+/* harmony export */   "getId": () => (/* binding */ getId),
+/* harmony export */   "getInstallations": () => (/* binding */ getInstallations),
+/* harmony export */   "getToken": () => (/* binding */ getToken),
+/* harmony export */   "onIdChange": () => (/* binding */ onIdChange)
+/* harmony export */ });
+/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @firebase/app */ "./node_modules/@firebase/app/dist/esm/index.esm2017.js");
+/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @firebase/component */ "./node_modules/@firebase/component/dist/esm/index.esm2017.js");
+/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @firebase/util */ "./node_modules/@firebase/util/dist/index.esm2017.js");
+/* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! idb */ "./node_modules/idb/build/index.js");
+
+
+
+
+
+const name = "@firebase/installations";
+const version = "0.5.16";
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+const PENDING_TIMEOUT_MS = 10000;
+const PACKAGE_VERSION = `w:${version}`;
+const INTERNAL_AUTH_VERSION = 'FIS_v2';
+const INSTALLATIONS_API_URL = 'https://firebaseinstallations.googleapis.com/v1';
+const TOKEN_EXPIRATION_BUFFER = 60 * 60 * 1000; // One hour
+const SERVICE = 'installations';
+const SERVICE_NAME = 'Installations';
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+const ERROR_DESCRIPTION_MAP = {
+    ["missing-app-config-values" /* MISSING_APP_CONFIG_VALUES */]: 'Missing App configuration value: "{$valueName}"',
+    ["not-registered" /* NOT_REGISTERED */]: 'Firebase Installation is not registered.',
+    ["installation-not-found" /* INSTALLATION_NOT_FOUND */]: 'Firebase Installation not found.',
+    ["request-failed" /* REQUEST_FAILED */]: '{$requestName} request failed with error "{$serverCode} {$serverStatus}: {$serverMessage}"',
+    ["app-offline" /* APP_OFFLINE */]: 'Could not process request. Application offline.',
+    ["delete-pending-registration" /* DELETE_PENDING_REGISTRATION */]: "Can't delete installation while there is a pending registration request."
+};
+const ERROR_FACTORY = new _firebase_util__WEBPACK_IMPORTED_MODULE_2__.ErrorFactory(SERVICE, SERVICE_NAME, ERROR_DESCRIPTION_MAP);
+/** Returns true if error is a FirebaseError that is based on an error from the server. */
+function isServerError(error) {
+    return (error instanceof _firebase_util__WEBPACK_IMPORTED_MODULE_2__.FirebaseError &&
+        error.code.includes("request-failed" /* REQUEST_FAILED */));
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+function getInstallationsEndpoint({ projectId }) {
+    return `${INSTALLATIONS_API_URL}/projects/${projectId}/installations`;
+}
+function extractAuthTokenInfoFromResponse(response) {
+    return {
+        token: response.token,
+        requestStatus: 2 /* COMPLETED */,
+        expiresIn: getExpiresInFromResponseExpiresIn(response.expiresIn),
+        creationTime: Date.now()
+    };
+}
+async function getErrorFromResponse(requestName, response) {
+    const responseJson = await response.json();
+    const errorData = responseJson.error;
+    return ERROR_FACTORY.create("request-failed" /* REQUEST_FAILED */, {
+        requestName,
+        serverCode: errorData.code,
+        serverMessage: errorData.message,
+        serverStatus: errorData.status
+    });
+}
+function getHeaders({ apiKey }) {
+    return new Headers({
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        'x-goog-api-key': apiKey
+    });
+}
+function getHeadersWithAuth(appConfig, { refreshToken }) {
+    const headers = getHeaders(appConfig);
+    headers.append('Authorization', getAuthorizationHeader(refreshToken));
+    return headers;
+}
+/**
+ * Calls the passed in fetch wrapper and returns the response.
+ * If the returned response has a status of 5xx, re-runs the function once and
+ * returns the response.
+ */
+async function retryIfServerError(fn) {
+    const result = await fn();
+    if (result.status >= 500 && result.status < 600) {
+        // Internal Server Error. Retry request.
+        return fn();
+    }
+    return result;
+}
+function getExpiresInFromResponseExpiresIn(responseExpiresIn) {
+    // This works because the server will never respond with fractions of a second.
+    return Number(responseExpiresIn.replace('s', '000'));
+}
+function getAuthorizationHeader(refreshToken) {
+    return `${INTERNAL_AUTH_VERSION} ${refreshToken}`;
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+async function createInstallationRequest({ appConfig, heartbeatServiceProvider }, { fid }) {
+    const endpoint = getInstallationsEndpoint(appConfig);
+    const headers = getHeaders(appConfig);
+    // If heartbeat service exists, add the heartbeat string to the header.
+    const heartbeatService = heartbeatServiceProvider.getImmediate({
+        optional: true
+    });
+    if (heartbeatService) {
+        const heartbeatsHeader = await heartbeatService.getHeartbeatsHeader();
+        if (heartbeatsHeader) {
+            headers.append('x-firebase-client', heartbeatsHeader);
+        }
+    }
+    const body = {
+        fid,
+        authVersion: INTERNAL_AUTH_VERSION,
+        appId: appConfig.appId,
+        sdkVersion: PACKAGE_VERSION
+    };
+    const request = {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(body)
+    };
+    const response = await retryIfServerError(() => fetch(endpoint, request));
+    if (response.ok) {
+        const responseValue = await response.json();
+        const registeredInstallationEntry = {
+            fid: responseValue.fid || fid,
+            registrationStatus: 2 /* COMPLETED */,
+            refreshToken: responseValue.refreshToken,
+            authToken: extractAuthTokenInfoFromResponse(responseValue.authToken)
+        };
+        return registeredInstallationEntry;
+    }
+    else {
+        throw await getErrorFromResponse('Create Installation', response);
+    }
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/** Returns a promise that resolves after given time passes. */
+function sleep(ms) {
+    return new Promise(resolve => {
+        setTimeout(resolve, ms);
+    });
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+function bufferToBase64UrlSafe(array) {
+    const b64 = btoa(String.fromCharCode(...array));
+    return b64.replace(/\+/g, '-').replace(/\//g, '_');
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+const VALID_FID_PATTERN = /^[cdef][\w-]{21}$/;
+const INVALID_FID = '';
+/**
+ * Generates a new FID using random values from Web Crypto API.
+ * Returns an empty string if FID generation fails for any reason.
+ */
+function generateFid() {
+    try {
+        // A valid FID has exactly 22 base64 characters, which is 132 bits, or 16.5
+        // bytes. our implementation generates a 17 byte array instead.
+        const fidByteArray = new Uint8Array(17);
+        const crypto = self.crypto || self.msCrypto;
+        crypto.getRandomValues(fidByteArray);
+        // Replace the first 4 random bits with the constant FID header of 0b0111.
+        fidByteArray[0] = 0b01110000 + (fidByteArray[0] % 0b00010000);
+        const fid = encode(fidByteArray);
+        return VALID_FID_PATTERN.test(fid) ? fid : INVALID_FID;
+    }
+    catch (_a) {
+        // FID generation errored
+        return INVALID_FID;
+    }
+}
+/** Converts a FID Uint8Array to a base64 string representation. */
+function encode(fidByteArray) {
+    const b64String = bufferToBase64UrlSafe(fidByteArray);
+    // Remove the 23rd character that was added because of the extra 4 bits at the
+    // end of our 17 byte array, and the '=' padding.
+    return b64String.substr(0, 22);
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/** Returns a string key that can be used to identify the app. */
+function getKey(appConfig) {
+    return `${appConfig.appName}!${appConfig.appId}`;
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+const fidChangeCallbacks = new Map();
+/**
+ * Calls the onIdChange callbacks with the new FID value, and broadcasts the
+ * change to other tabs.
+ */
+function fidChanged(appConfig, fid) {
+    const key = getKey(appConfig);
+    callFidChangeCallbacks(key, fid);
+    broadcastFidChange(key, fid);
+}
+function addCallback(appConfig, callback) {
+    // Open the broadcast channel if it's not already open,
+    // to be able to listen to change events from other tabs.
+    getBroadcastChannel();
+    const key = getKey(appConfig);
+    let callbackSet = fidChangeCallbacks.get(key);
+    if (!callbackSet) {
+        callbackSet = new Set();
+        fidChangeCallbacks.set(key, callbackSet);
+    }
+    callbackSet.add(callback);
+}
+function removeCallback(appConfig, callback) {
+    const key = getKey(appConfig);
+    const callbackSet = fidChangeCallbacks.get(key);
+    if (!callbackSet) {
+        return;
+    }
+    callbackSet.delete(callback);
+    if (callbackSet.size === 0) {
+        fidChangeCallbacks.delete(key);
+    }
+    // Close broadcast channel if there are no more callbacks.
+    closeBroadcastChannel();
+}
+function callFidChangeCallbacks(key, fid) {
+    const callbacks = fidChangeCallbacks.get(key);
+    if (!callbacks) {
+        return;
+    }
+    for (const callback of callbacks) {
+        callback(fid);
+    }
+}
+function broadcastFidChange(key, fid) {
+    const channel = getBroadcastChannel();
+    if (channel) {
+        channel.postMessage({ key, fid });
+    }
+    closeBroadcastChannel();
+}
+let broadcastChannel = null;
+/** Opens and returns a BroadcastChannel if it is supported by the browser. */
+function getBroadcastChannel() {
+    if (!broadcastChannel && 'BroadcastChannel' in self) {
+        broadcastChannel = new BroadcastChannel('[Firebase] FID Change');
+        broadcastChannel.onmessage = e => {
+            callFidChangeCallbacks(e.data.key, e.data.fid);
+        };
+    }
+    return broadcastChannel;
+}
+function closeBroadcastChannel() {
+    if (fidChangeCallbacks.size === 0 && broadcastChannel) {
+        broadcastChannel.close();
+        broadcastChannel = null;
+    }
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+const DATABASE_NAME = 'firebase-installations-database';
+const DATABASE_VERSION = 1;
+const OBJECT_STORE_NAME = 'firebase-installations-store';
+let dbPromise = null;
+function getDbPromise() {
+    if (!dbPromise) {
+        dbPromise = (0,idb__WEBPACK_IMPORTED_MODULE_3__.openDB)(DATABASE_NAME, DATABASE_VERSION, {
+            upgrade: (db, oldVersion) => {
+                // We don't use 'break' in this switch statement, the fall-through
+                // behavior is what we want, because if there are multiple versions between
+                // the old version and the current version, we want ALL the migrations
+                // that correspond to those versions to run, not only the last one.
+                // eslint-disable-next-line default-case
+                switch (oldVersion) {
+                    case 0:
+                        db.createObjectStore(OBJECT_STORE_NAME);
+                }
+            }
+        });
+    }
+    return dbPromise;
+}
+/** Assigns or overwrites the record for the given key with the given value. */
+async function set(appConfig, value) {
+    const key = getKey(appConfig);
+    const db = await getDbPromise();
+    const tx = db.transaction(OBJECT_STORE_NAME, 'readwrite');
+    const objectStore = tx.objectStore(OBJECT_STORE_NAME);
+    const oldValue = (await objectStore.get(key));
+    await objectStore.put(value, key);
+    await tx.done;
+    if (!oldValue || oldValue.fid !== value.fid) {
+        fidChanged(appConfig, value.fid);
+    }
+    return value;
+}
+/** Removes record(s) from the objectStore that match the given key. */
+async function remove(appConfig) {
+    const key = getKey(appConfig);
+    const db = await getDbPromise();
+    const tx = db.transaction(OBJECT_STORE_NAME, 'readwrite');
+    await tx.objectStore(OBJECT_STORE_NAME).delete(key);
+    await tx.done;
+}
+/**
+ * Atomically updates a record with the result of updateFn, which gets
+ * called with the current value. If newValue is undefined, the record is
+ * deleted instead.
+ * @return Updated value
+ */
+async function update(appConfig, updateFn) {
+    const key = getKey(appConfig);
+    const db = await getDbPromise();
+    const tx = db.transaction(OBJECT_STORE_NAME, 'readwrite');
+    const store = tx.objectStore(OBJECT_STORE_NAME);
+    const oldValue = (await store.get(key));
+    const newValue = updateFn(oldValue);
+    if (newValue === undefined) {
+        await store.delete(key);
+    }
+    else {
+        await store.put(newValue, key);
+    }
+    await tx.done;
+    if (newValue && (!oldValue || oldValue.fid !== newValue.fid)) {
+        fidChanged(appConfig, newValue.fid);
+    }
+    return newValue;
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Updates and returns the InstallationEntry from the database.
+ * Also triggers a registration request if it is necessary and possible.
+ */
+async function getInstallationEntry(installations) {
+    let registrationPromise;
+    const installationEntry = await update(installations.appConfig, oldEntry => {
+        const installationEntry = updateOrCreateInstallationEntry(oldEntry);
+        const entryWithPromise = triggerRegistrationIfNecessary(installations, installationEntry);
+        registrationPromise = entryWithPromise.registrationPromise;
+        return entryWithPromise.installationEntry;
+    });
+    if (installationEntry.fid === INVALID_FID) {
+        // FID generation failed. Waiting for the FID from the server.
+        return { installationEntry: await registrationPromise };
+    }
+    return {
+        installationEntry,
+        registrationPromise
+    };
+}
+/**
+ * Creates a new Installation Entry if one does not exist.
+ * Also clears timed out pending requests.
+ */
+function updateOrCreateInstallationEntry(oldEntry) {
+    const entry = oldEntry || {
+        fid: generateFid(),
+        registrationStatus: 0 /* NOT_STARTED */
+    };
+    return clearTimedOutRequest(entry);
+}
+/**
+ * If the Firebase Installation is not registered yet, this will trigger the
+ * registration and return an InProgressInstallationEntry.
+ *
+ * If registrationPromise does not exist, the installationEntry is guaranteed
+ * to be registered.
+ */
+function triggerRegistrationIfNecessary(installations, installationEntry) {
+    if (installationEntry.registrationStatus === 0 /* NOT_STARTED */) {
+        if (!navigator.onLine) {
+            // Registration required but app is offline.
+            const registrationPromiseWithError = Promise.reject(ERROR_FACTORY.create("app-offline" /* APP_OFFLINE */));
+            return {
+                installationEntry,
+                registrationPromise: registrationPromiseWithError
+            };
+        }
+        // Try registering. Change status to IN_PROGRESS.
+        const inProgressEntry = {
+            fid: installationEntry.fid,
+            registrationStatus: 1 /* IN_PROGRESS */,
+            registrationTime: Date.now()
+        };
+        const registrationPromise = registerInstallation(installations, inProgressEntry);
+        return { installationEntry: inProgressEntry, registrationPromise };
+    }
+    else if (installationEntry.registrationStatus === 1 /* IN_PROGRESS */) {
+        return {
+            installationEntry,
+            registrationPromise: waitUntilFidRegistration(installations)
+        };
+    }
+    else {
+        return { installationEntry };
+    }
+}
+/** This will be executed only once for each new Firebase Installation. */
+async function registerInstallation(installations, installationEntry) {
+    try {
+        const registeredInstallationEntry = await createInstallationRequest(installations, installationEntry);
+        return set(installations.appConfig, registeredInstallationEntry);
+    }
+    catch (e) {
+        if (isServerError(e) && e.customData.serverCode === 409) {
+            // Server returned a "FID can not be used" error.
+            // Generate a new ID next time.
+            await remove(installations.appConfig);
+        }
+        else {
+            // Registration failed. Set FID as not registered.
+            await set(installations.appConfig, {
+                fid: installationEntry.fid,
+                registrationStatus: 0 /* NOT_STARTED */
+            });
+        }
+        throw e;
+    }
+}
+/** Call if FID registration is pending in another request. */
+async function waitUntilFidRegistration(installations) {
+    // Unfortunately, there is no way of reliably observing when a value in
+    // IndexedDB changes (yet, see https://github.com/WICG/indexed-db-observers),
+    // so we need to poll.
+    let entry = await updateInstallationRequest(installations.appConfig);
+    while (entry.registrationStatus === 1 /* IN_PROGRESS */) {
+        // createInstallation request still in progress.
+        await sleep(100);
+        entry = await updateInstallationRequest(installations.appConfig);
+    }
+    if (entry.registrationStatus === 0 /* NOT_STARTED */) {
+        // The request timed out or failed in a different call. Try again.
+        const { installationEntry, registrationPromise } = await getInstallationEntry(installations);
+        if (registrationPromise) {
+            return registrationPromise;
+        }
+        else {
+            // if there is no registrationPromise, entry is registered.
+            return installationEntry;
+        }
+    }
+    return entry;
+}
+/**
+ * Called only if there is a CreateInstallation request in progress.
+ *
+ * Updates the InstallationEntry in the DB based on the status of the
+ * CreateInstallation request.
+ *
+ * Returns the updated InstallationEntry.
+ */
+function updateInstallationRequest(appConfig) {
+    return update(appConfig, oldEntry => {
+        if (!oldEntry) {
+            throw ERROR_FACTORY.create("installation-not-found" /* INSTALLATION_NOT_FOUND */);
+        }
+        return clearTimedOutRequest(oldEntry);
+    });
+}
+function clearTimedOutRequest(entry) {
+    if (hasInstallationRequestTimedOut(entry)) {
+        return {
+            fid: entry.fid,
+            registrationStatus: 0 /* NOT_STARTED */
+        };
+    }
+    return entry;
+}
+function hasInstallationRequestTimedOut(installationEntry) {
+    return (installationEntry.registrationStatus === 1 /* IN_PROGRESS */ &&
+        installationEntry.registrationTime + PENDING_TIMEOUT_MS < Date.now());
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+async function generateAuthTokenRequest({ appConfig, heartbeatServiceProvider }, installationEntry) {
+    const endpoint = getGenerateAuthTokenEndpoint(appConfig, installationEntry);
+    const headers = getHeadersWithAuth(appConfig, installationEntry);
+    // If heartbeat service exists, add the heartbeat string to the header.
+    const heartbeatService = heartbeatServiceProvider.getImmediate({
+        optional: true
+    });
+    if (heartbeatService) {
+        const heartbeatsHeader = await heartbeatService.getHeartbeatsHeader();
+        if (heartbeatsHeader) {
+            headers.append('x-firebase-client', heartbeatsHeader);
+        }
+    }
+    const body = {
+        installation: {
+            sdkVersion: PACKAGE_VERSION,
+            appId: appConfig.appId
+        }
+    };
+    const request = {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(body)
+    };
+    const response = await retryIfServerError(() => fetch(endpoint, request));
+    if (response.ok) {
+        const responseValue = await response.json();
+        const completedAuthToken = extractAuthTokenInfoFromResponse(responseValue);
+        return completedAuthToken;
+    }
+    else {
+        throw await getErrorFromResponse('Generate Auth Token', response);
+    }
+}
+function getGenerateAuthTokenEndpoint(appConfig, { fid }) {
+    return `${getInstallationsEndpoint(appConfig)}/${fid}/authTokens:generate`;
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Returns a valid authentication token for the installation. Generates a new
+ * token if one doesn't exist, is expired or about to expire.
+ *
+ * Should only be called if the Firebase Installation is registered.
+ */
+async function refreshAuthToken(installations, forceRefresh = false) {
+    let tokenPromise;
+    const entry = await update(installations.appConfig, oldEntry => {
+        if (!isEntryRegistered(oldEntry)) {
+            throw ERROR_FACTORY.create("not-registered" /* NOT_REGISTERED */);
+        }
+        const oldAuthToken = oldEntry.authToken;
+        if (!forceRefresh && isAuthTokenValid(oldAuthToken)) {
+            // There is a valid token in the DB.
+            return oldEntry;
+        }
+        else if (oldAuthToken.requestStatus === 1 /* IN_PROGRESS */) {
+            // There already is a token request in progress.
+            tokenPromise = waitUntilAuthTokenRequest(installations, forceRefresh);
+            return oldEntry;
+        }
+        else {
+            // No token or token expired.
+            if (!navigator.onLine) {
+                throw ERROR_FACTORY.create("app-offline" /* APP_OFFLINE */);
+            }
+            const inProgressEntry = makeAuthTokenRequestInProgressEntry(oldEntry);
+            tokenPromise = fetchAuthTokenFromServer(installations, inProgressEntry);
+            return inProgressEntry;
+        }
+    });
+    const authToken = tokenPromise
+        ? await tokenPromise
+        : entry.authToken;
+    return authToken;
+}
+/**
+ * Call only if FID is registered and Auth Token request is in progress.
+ *
+ * Waits until the current pending request finishes. If the request times out,
+ * tries once in this thread as well.
+ */
+async function waitUntilAuthTokenRequest(installations, forceRefresh) {
+    // Unfortunately, there is no way of reliably observing when a value in
+    // IndexedDB changes (yet, see https://github.com/WICG/indexed-db-observers),
+    // so we need to poll.
+    let entry = await updateAuthTokenRequest(installations.appConfig);
+    while (entry.authToken.requestStatus === 1 /* IN_PROGRESS */) {
+        // generateAuthToken still in progress.
+        await sleep(100);
+        entry = await updateAuthTokenRequest(installations.appConfig);
+    }
+    const authToken = entry.authToken;
+    if (authToken.requestStatus === 0 /* NOT_STARTED */) {
+        // The request timed out or failed in a different call. Try again.
+        return refreshAuthToken(installations, forceRefresh);
+    }
+    else {
+        return authToken;
+    }
+}
+/**
+ * Called only if there is a GenerateAuthToken request in progress.
+ *
+ * Updates the InstallationEntry in the DB based on the status of the
+ * GenerateAuthToken request.
+ *
+ * Returns the updated InstallationEntry.
+ */
+function updateAuthTokenRequest(appConfig) {
+    return update(appConfig, oldEntry => {
+        if (!isEntryRegistered(oldEntry)) {
+            throw ERROR_FACTORY.create("not-registered" /* NOT_REGISTERED */);
+        }
+        const oldAuthToken = oldEntry.authToken;
+        if (hasAuthTokenRequestTimedOut(oldAuthToken)) {
+            return Object.assign(Object.assign({}, oldEntry), { authToken: { requestStatus: 0 /* NOT_STARTED */ } });
+        }
+        return oldEntry;
+    });
+}
+async function fetchAuthTokenFromServer(installations, installationEntry) {
+    try {
+        const authToken = await generateAuthTokenRequest(installations, installationEntry);
+        const updatedInstallationEntry = Object.assign(Object.assign({}, installationEntry), { authToken });
+        await set(installations.appConfig, updatedInstallationEntry);
+        return authToken;
+    }
+    catch (e) {
+        if (isServerError(e) &&
+            (e.customData.serverCode === 401 || e.customData.serverCode === 404)) {
+            // Server returned a "FID not found" or a "Invalid authentication" error.
+            // Generate a new ID next time.
+            await remove(installations.appConfig);
+        }
+        else {
+            const updatedInstallationEntry = Object.assign(Object.assign({}, installationEntry), { authToken: { requestStatus: 0 /* NOT_STARTED */ } });
+            await set(installations.appConfig, updatedInstallationEntry);
+        }
+        throw e;
+    }
+}
+function isEntryRegistered(installationEntry) {
+    return (installationEntry !== undefined &&
+        installationEntry.registrationStatus === 2 /* COMPLETED */);
+}
+function isAuthTokenValid(authToken) {
+    return (authToken.requestStatus === 2 /* COMPLETED */ &&
+        !isAuthTokenExpired(authToken));
+}
+function isAuthTokenExpired(authToken) {
+    const now = Date.now();
+    return (now < authToken.creationTime ||
+        authToken.creationTime + authToken.expiresIn < now + TOKEN_EXPIRATION_BUFFER);
+}
+/** Returns an updated InstallationEntry with an InProgressAuthToken. */
+function makeAuthTokenRequestInProgressEntry(oldEntry) {
+    const inProgressAuthToken = {
+        requestStatus: 1 /* IN_PROGRESS */,
+        requestTime: Date.now()
+    };
+    return Object.assign(Object.assign({}, oldEntry), { authToken: inProgressAuthToken });
+}
+function hasAuthTokenRequestTimedOut(authToken) {
+    return (authToken.requestStatus === 1 /* IN_PROGRESS */ &&
+        authToken.requestTime + PENDING_TIMEOUT_MS < Date.now());
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Creates a Firebase Installation if there isn't one for the app and
+ * returns the Installation ID.
+ * @param installations - The `Installations` instance.
+ *
+ * @public
+ */
+async function getId(installations) {
+    const installationsImpl = installations;
+    const { installationEntry, registrationPromise } = await getInstallationEntry(installationsImpl);
+    if (registrationPromise) {
+        registrationPromise.catch(console.error);
+    }
+    else {
+        // If the installation is already registered, update the authentication
+        // token if needed.
+        refreshAuthToken(installationsImpl).catch(console.error);
+    }
+    return installationEntry.fid;
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Returns a Firebase Installations auth token, identifying the current
+ * Firebase Installation.
+ * @param installations - The `Installations` instance.
+ * @param forceRefresh - Force refresh regardless of token expiration.
+ *
+ * @public
+ */
+async function getToken(installations, forceRefresh = false) {
+    const installationsImpl = installations;
+    await completeInstallationRegistration(installationsImpl);
+    // At this point we either have a Registered Installation in the DB, or we've
+    // already thrown an error.
+    const authToken = await refreshAuthToken(installationsImpl, forceRefresh);
+    return authToken.token;
+}
+async function completeInstallationRegistration(installations) {
+    const { registrationPromise } = await getInstallationEntry(installations);
+    if (registrationPromise) {
+        // A createInstallation request is in progress. Wait until it finishes.
+        await registrationPromise;
+    }
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+async function deleteInstallationRequest(appConfig, installationEntry) {
+    const endpoint = getDeleteEndpoint(appConfig, installationEntry);
+    const headers = getHeadersWithAuth(appConfig, installationEntry);
+    const request = {
+        method: 'DELETE',
+        headers
+    };
+    const response = await retryIfServerError(() => fetch(endpoint, request));
+    if (!response.ok) {
+        throw await getErrorFromResponse('Delete Installation', response);
+    }
+}
+function getDeleteEndpoint(appConfig, { fid }) {
+    return `${getInstallationsEndpoint(appConfig)}/${fid}`;
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Deletes the Firebase Installation and all associated data.
+ * @param installations - The `Installations` instance.
+ *
+ * @public
+ */
+async function deleteInstallations(installations) {
+    const { appConfig } = installations;
+    const entry = await update(appConfig, oldEntry => {
+        if (oldEntry && oldEntry.registrationStatus === 0 /* NOT_STARTED */) {
+            // Delete the unregistered entry without sending a deleteInstallation request.
+            return undefined;
+        }
+        return oldEntry;
+    });
+    if (entry) {
+        if (entry.registrationStatus === 1 /* IN_PROGRESS */) {
+            // Can't delete while trying to register.
+            throw ERROR_FACTORY.create("delete-pending-registration" /* DELETE_PENDING_REGISTRATION */);
+        }
+        else if (entry.registrationStatus === 2 /* COMPLETED */) {
+            if (!navigator.onLine) {
+                throw ERROR_FACTORY.create("app-offline" /* APP_OFFLINE */);
+            }
+            else {
+                await deleteInstallationRequest(appConfig, entry);
+                await remove(appConfig);
+            }
+        }
+    }
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Sets a new callback that will get called when Installation ID changes.
+ * Returns an unsubscribe function that will remove the callback when called.
+ * @param installations - The `Installations` instance.
+ * @param callback - The callback function that is invoked when FID changes.
+ * @returns A function that can be called to unsubscribe.
+ *
+ * @public
+ */
+function onIdChange(installations, callback) {
+    const { appConfig } = installations;
+    addCallback(appConfig, callback);
+    return () => {
+        removeCallback(appConfig, callback);
+    };
+}
+
+/**
+ * @license
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Returns an instance of {@link Installations} associated with the given
+ * {@link @firebase/app#FirebaseApp} instance.
+ * @param app - The {@link @firebase/app#FirebaseApp} instance.
+ *
+ * @public
+ */
+function getInstallations(app = (0,_firebase_app__WEBPACK_IMPORTED_MODULE_0__.getApp)()) {
+    const installationsImpl = (0,_firebase_app__WEBPACK_IMPORTED_MODULE_0__._getProvider)(app, 'installations').getImmediate();
+    return installationsImpl;
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+function extractAppConfig(app) {
+    if (!app || !app.options) {
+        throw getMissingValueError('App Configuration');
+    }
+    if (!app.name) {
+        throw getMissingValueError('App Name');
+    }
+    // Required app config keys
+    const configKeys = [
+        'projectId',
+        'apiKey',
+        'appId'
+    ];
+    for (const keyName of configKeys) {
+        if (!app.options[keyName]) {
+            throw getMissingValueError(keyName);
+        }
+    }
+    return {
+        appName: app.name,
+        projectId: app.options.projectId,
+        apiKey: app.options.apiKey,
+        appId: app.options.appId
+    };
+}
+function getMissingValueError(valueName) {
+    return ERROR_FACTORY.create("missing-app-config-values" /* MISSING_APP_CONFIG_VALUES */, {
+        valueName
+    });
+}
+
+/**
+ * @license
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+const INSTALLATIONS_NAME = 'installations';
+const INSTALLATIONS_NAME_INTERNAL = 'installations-internal';
+const publicFactory = (container) => {
+    const app = container.getProvider('app').getImmediate();
+    // Throws if app isn't configured properly.
+    const appConfig = extractAppConfig(app);
+    const heartbeatServiceProvider = (0,_firebase_app__WEBPACK_IMPORTED_MODULE_0__._getProvider)(app, 'heartbeat');
+    const installationsImpl = {
+        app,
+        appConfig,
+        heartbeatServiceProvider,
+        _delete: () => Promise.resolve()
+    };
+    return installationsImpl;
+};
+const internalFactory = (container) => {
+    const app = container.getProvider('app').getImmediate();
+    // Internal FIS instance relies on public FIS instance.
+    const installations = (0,_firebase_app__WEBPACK_IMPORTED_MODULE_0__._getProvider)(app, INSTALLATIONS_NAME).getImmediate();
+    const installationsInternal = {
+        getId: () => getId(installations),
+        getToken: (forceRefresh) => getToken(installations, forceRefresh)
+    };
+    return installationsInternal;
+};
+function registerInstallations() {
+    (0,_firebase_app__WEBPACK_IMPORTED_MODULE_0__._registerComponent)(new _firebase_component__WEBPACK_IMPORTED_MODULE_1__.Component(INSTALLATIONS_NAME, publicFactory, "PUBLIC" /* PUBLIC */));
+    (0,_firebase_app__WEBPACK_IMPORTED_MODULE_0__._registerComponent)(new _firebase_component__WEBPACK_IMPORTED_MODULE_1__.Component(INSTALLATIONS_NAME_INTERNAL, internalFactory, "PRIVATE" /* PRIVATE */));
+}
+
+/**
+ * Firebase Installations
+ *
+ * @packageDocumentation
+ */
+registerInstallations();
+(0,_firebase_app__WEBPACK_IMPORTED_MODULE_0__.registerVersion)(name, version);
+// BUILD_TARGET will be replaced by values like esm5, esm2017, cjs5, etc during the compilation
+(0,_firebase_app__WEBPACK_IMPORTED_MODULE_0__.registerVersion)(name, version, 'esm2017');
 
 
 //# sourceMappingURL=index.esm2017.js.map
@@ -66569,10 +70154,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Popup_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Popup.vue */ "./assets/js/Popup.vue");
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router */ "./assets/js/router/index.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store */ "./assets/js/store/index.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.esm.js");
+/* harmony import */ var firebase_analytics__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! firebase/analytics */ "./node_modules/firebase/analytics/dist/index.esm.js");
 
 
 
 
+
+//FIREBASE
+
+// Import the functions you need from the SDKs you need
+
+
+// Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+var firebaseConfig = {
+  apiKey: "AIzaSyABW6yIexuOiGeNJd8jK8_AuUB-GqTlpwQ",
+  authDomain: "frontendplatform-83b6d.firebaseapp.com",
+  projectId: "frontendplatform-83b6d",
+  storageBucket: "frontendplatform-83b6d.appspot.com",
+  messagingSenderId: "430809266431",
+  appId: "1:430809266431:web:6b6f816b983a89084234ca",
+  measurementId: "G-KDFQEEQDZJ"
+};
+// Initialize Firebase
+var app = (0,firebase_app__WEBPACK_IMPORTED_MODULE_4__.initializeApp)(firebaseConfig);
+var analytics = (0,firebase_analytics__WEBPACK_IMPORTED_MODULE_5__.getAnalytics)(app);
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)(_Popup_vue__WEBPACK_IMPORTED_MODULE_1__["default"]).use(_store__WEBPACK_IMPORTED_MODULE_3__["default"]).use(_router__WEBPACK_IMPORTED_MODULE_2__["default"]).mount("#app");
 })();
 
