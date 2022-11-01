@@ -1,30 +1,30 @@
 <template>
-    <!-- Implement dark/light mode-->
-    <n-config-provider style="padding: 0" :theme="$store.state.colorMode === 'Light' ? null : darkTheme">
-      <n-card style="padding: 0" :style="{ borderRadius: 0 }">
-        <!-- Implement dark/light mode switch (if logged in, fetch the mode and set colorMode in state)-->
-        <n-switch style="padding: 0" 
-          checked-value="Dark"
-          unchecked-value="Light"
-          @update:value="handleColorModeSwitchValue"
-          size="small"
-        >
-          <template style="padding: 0" #checked-icon><MoonIcon /></template>
-          <template style="padding: 0" #unchecked-icon><SunIcon /></template>
-        </n-switch>
+  <!-- Implement dark/light mode-->
 
-        <!--USE NAIVE UI COMPONENTS-->
-        <!--https://www.naiveui.com/en-US/dark-->
+  <n-card style="padding: 0" :style="{ borderRadius: 0 }">
+    <!-- Implement dark/light mode switch (if logged in, fetch the mode and set colorMode in state)-->
+    <n-switch
+      style="padding: 0"
+      checked-value="Dark"
+      unchecked-value="Light"
+      @update:value="handleColorModeSwitchValue"
+      size="small"
+    >
+      <template style="padding: 0" #checked-icon><MoonIcon /></template>
+      <template style="padding: 0" #unchecked-icon><SunIcon /></template>
+    </n-switch>
 
-        <!-- Login -->
+    <!--USE NAIVE UI COMPONENTS-->
+    <!--https://www.naiveui.com/en-US/dark-->
 
-        <!-- Register  ( Redirect to register of website )-->
+    <!-- Login -->
 
-        <!-- When logged in, show favorite clickable tools -->
+    <!-- Register  ( Redirect to register of website )-->
 
-        <!-- When logged in, be able to create a project the same you create one on the website -->
-      </n-card>
-    </n-config-provider>
+    <!-- When logged in, show favorite clickable tools -->
+
+    <!-- When logged in, be able to create a project the same you create one on the website -->
+  </n-card>
 </template>
 
 <script>

@@ -1,17 +1,19 @@
 <template>
-  <NavBar />
-  <n-loading-bar-provider>
-    <n-notification-provider :max="1" :placement="'right'">
-      <n-message-provider>
-        <router-view v-slot="{ Component, route }">
-          <component
-            :is="Component"
-            :key="route.meta.usePathKey ? route.path : undefined"
-          />
-        </router-view>
-      </n-message-provider>
-    </n-notification-provider>
-  </n-loading-bar-provider>
+  <n-config-provider :theme="$store.state.colorMode === 'Light' ? null : darkTheme">
+    <n-loading-bar-provider>
+      <n-notification-provider :max="1" :placement="'right'">
+        <n-message-provider>
+          <NavBar />
+          <router-view v-slot="{ Component, route }">
+            <component
+              :is="Component"
+              :key="route.meta.usePathKey ? route.path : undefined"
+            />
+          </router-view>
+        </n-message-provider>
+      </n-notification-provider>
+    </n-loading-bar-provider>
+  </n-config-provider>
 </template>
 
 <script>

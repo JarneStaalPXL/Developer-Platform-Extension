@@ -1,34 +1,32 @@
 <template>
-  <div id="login">
-    <label>Login</label>
-    <section class="registerSection">
-      <div class="d-flex mb-2 inputContainer">
-        <n-auto-complete
-          :options="options"
-          type="email"
-          placeholder="Email"
-          v-model:value="email"
-          @keyup.enter="signIn(email, password)"
-        ></n-auto-complete>
-        <n-input
-          type="password"
-          show-password-on="click"
-          placeholder="Password"
-          v-model:value="password"
-          @keyup.enter="signIn(email, password)"
-        ></n-input>
-      </div>
-      <div class="w-100 d-flex flex-column buttonContainer">
-        <n-button class="w-100" @click="signIn(email, password)">Sign in</n-button>
-        <n-button class="w-100" @click="googleSignin()"
-          ><span style="margin-right: 5px">Log in with </span>
-          <i class="fa-brands fa-google" style="margin-right: 2px"></i
-        ></n-button>
+  <!-- <label>Login</label> -->
+  <section class="registerSection">
+    <div class="d-flex mb-2 inputContainer">
+      <n-auto-complete
+        :options="options"
+        type="email"
+        placeholder="Email"
+        v-model:value="email"
+        @keyup.enter="signIn(email, password)"
+      ></n-auto-complete>
+      <n-input
+        type="password"
+        show-password-on="click"
+        placeholder="Password"
+        v-model:value="password"
+        @keyup.enter="signIn(email, password)"
+      ></n-input>
+    </div>
+    <div class="w-100 d-flex flex-column buttonContainer">
+      <n-button class="w-100" @click="signIn(email, password)">Sign in</n-button>
+      <n-button class="w-100" @click="googleSignin()"
+        ><span style="margin-right: 5px">Log in with </span>
+        <i class="fa-brands fa-google" style="margin-right: 2px"></i
+      ></n-button>
 
-        <a class="mt-4" id="forgotPassword" @click="openLink()">Forgot password?</a>
-      </div>
-    </section>
-  </div>
+      <a class="mt-4" id="forgotPassword" @click="openLink()">Forgot password?</a>
+    </div>
+  </section>
 </template>
 
 <script>
