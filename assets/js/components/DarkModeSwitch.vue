@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <!-- Implement dark/light mode-->
     <n-config-provider :theme="$store.state.colorMode === 'Light' ? null : darkTheme">
       <n-card :style="{ borderRadius: 0 }">
