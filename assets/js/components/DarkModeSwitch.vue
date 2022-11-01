@@ -1,17 +1,16 @@
 <template>
   <!-- Implement dark/light mode-->
 
-  <n-card style="padding: 0" :style="{ borderRadius: 0 }">
+  
     <!-- Implement dark/light mode switch (if logged in, fetch the mode and set colorMode in state)-->
     <n-switch
-      style="padding: 0"
       checked-value="Dark"
       unchecked-value="Light"
       @update:value="handleColorModeSwitchValue"
       size="small"
     >
-      <template style="padding: 0" #checked-icon><MoonIcon /></template>
-      <template style="padding: 0" #unchecked-icon><SunIcon /></template>
+      <template #checked-icon><MoonIcon /></template>
+      <template #unchecked-icon><SunIcon /></template>
     </n-switch>
 
     <!--USE NAIVE UI COMPONENTS-->
@@ -24,7 +23,6 @@
     <!-- When logged in, show favorite clickable tools -->
 
     <!-- When logged in, be able to create a project the same you create one on the website -->
-  </n-card>
 </template>
 
 <script>

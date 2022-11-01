@@ -178,8 +178,5 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-  width: 500px;
-  height: 500px;
-}
+
 </style>

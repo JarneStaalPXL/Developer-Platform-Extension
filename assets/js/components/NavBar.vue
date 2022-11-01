@@ -31,37 +31,34 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
 
 nav {
   display: flex;
-  border-bottom: 1px solid black;
-  justify-content: space-between;
-  font-family: Titillium Web, sans-serif;
-  box-sizing: border-box;
-}
-
-nav #nav-right {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  width: 85%;
-  margin: 0;
-}
+  justify-content: start;
 
-nav #container-nav {
-  display: flex;
+#container-nav {
   padding: 0;
+
+  .n-card {
+    padding: 0;
+  }
 }
 
-nav img {
-  width: 15%;
-  margin: 5px;
+  img 
+  {
+    width: 25px;
+    height: auto;
+  }
+
+  #nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+  }
 }
 
-nav span {
-  font-size: 15px;
-  margin: 10px;
-}
 </style>
