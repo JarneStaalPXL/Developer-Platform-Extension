@@ -1,17 +1,16 @@
 <template>
-  <div>
     <!-- Implement dark/light mode-->
-    <n-config-provider :theme="$store.state.colorMode === 'Light' ? null : darkTheme">
-      <n-card :style="{ borderRadius: 0 }">
+    <n-config-provider style="padding: 0" :theme="$store.state.colorMode === 'Light' ? null : darkTheme">
+      <n-card style="padding: 0" :style="{ borderRadius: 0 }">
         <!-- Implement dark/light mode switch (if logged in, fetch the mode and set colorMode in state)-->
-        <n-switch
+        <n-switch style="padding: 0" 
           checked-value="Dark"
           unchecked-value="Light"
           @update:value="handleColorModeSwitchValue"
           size="small"
         >
-          <template #checked-icon><MoonIcon /></template>
-          <template #unchecked-icon><SunIcon /></template>
+          <template style="padding: 0" #checked-icon><MoonIcon /></template>
+          <template style="padding: 0" #unchecked-icon><SunIcon /></template>
         </n-switch>
 
         <!--USE NAIVE UI COMPONENTS-->
@@ -26,7 +25,6 @@
         <!-- When logged in, be able to create a project the same you create one on the website -->
       </n-card>
     </n-config-provider>
-  </div>
 </template>
 
 <script>
