@@ -49,6 +49,20 @@ export default {
       },
     };
   },
+  async beforeMount(){
+    if (chrome.storage.sync.get(['userId']) !== null) {
+      this.$store.dispatch("LOAD_USER_SAVED_DATA", localStorage.getItem("uid"));
+      //get user favorite tools
+      await this.$store.dispatch("GET_USER_FAVORITE_TOOLS");
+      //set color mode
+      await this.$store.dispatch("GET_USER_COLOR_MODE");
+    }
+    if (localStorage.getItem("favTools") === null) {
+      localStorage.setItem("favTools", JSON.stringify([]));
+    }
+    this.checkIfOnMobile();
+    this.setTime();
+  },
   mounted() {
     this.$store.state.colorMode === "Light"
       ? (this.switchIsChecked = false)

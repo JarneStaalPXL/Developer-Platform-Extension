@@ -74,6 +74,9 @@ export default {
     window.$loadingbar = useLoadingBar();
     window.$message = useMessage();
     window.$notification = useNotification();
+    if(chrome.storage.sync.get(['userId']) != null){
+      this.$router.push('/options');
+    }
   },
   methods: {
     openLink() {
@@ -121,6 +124,16 @@ export default {
           await this.$store.dispatch("GET_PAGE_VISITS");
           await this.$store.dispatch("GET_USER_FAVORITE_TOOLS");
           window.$loadingbar.finish();
+
+          
+          chrome.storage.sync.set({userId: user.uid}, function(){
+            console.log('Value is set to ' + user.uid);
+          })
+          chrome.storage.sync.get(['userId'], function(result) {
+            console.log('Value currently is ' + result.userId);
+          });
+
+
           this.$router.push("/options");
         })
         .catch((error) => {
