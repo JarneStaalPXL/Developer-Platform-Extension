@@ -8,7 +8,7 @@ import Options from "../views/Options.vue";
 
 const routes = [
   {
-    path: "/popup.html",
+    path: "/login",
     name: "Login",
     component: Login,
   },

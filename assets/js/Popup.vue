@@ -60,8 +60,8 @@ export default {
     if (localStorage.getItem("favTools") === null) {
       localStorage.setItem("favTools", JSON.stringify([]));
     }
-    this.checkIfOnMobile();
-    this.setTime();
+    //this.checkIfOnMobile();
+    //this.setTime();
   },
   mounted() {
     this.$store.state.colorMode === "Light"

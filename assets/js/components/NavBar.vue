@@ -9,6 +9,7 @@
           Platform
         </span>
         <DarkModeSwitchVue />
+        <button v-if="userId != null" @click="logOut">Logout</button>
       </div>
     </n-card>
   </nav>
@@ -17,6 +18,7 @@
 <script>
 import DarkModeSwitchVue from "./DarkModeSwitch.vue";
 import { NConfigProvider, NCard, darkTheme } from "naive-ui";
+import { Cone } from '@vicons/tabler';
 export default {
   components: {
     DarkModeSwitchVue,
@@ -28,7 +30,27 @@ export default {
       darkTheme,
     };
   },
-};
+  data(){
+    return{
+      userId: chrome.storage.sync.get(['userId']),
+    }
+  },
+  methods: {
+    async logOut() {
+      await chrome.storage.sync.remove(["userId"]);
+      this.$router.push("/login");
+      if(chrome.storage.sync.get(['userId']) == null){
+        console.log("logged out");
+
+      }
+      else{
+        console.log("not logged out");
+      }
+      console.log(chrome.storage.sync.get(['userId']));
+    }
+  
+  }
+}
 </script>
 
 <style scoped lang="scss">
